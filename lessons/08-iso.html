@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 8: ISO — The Noise Knob — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p2{background:linear-gradient(135deg,#f97316,#ea580c)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .iso-ruler{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .iso-ruler h3{margin-bottom:12px}
+    .iso-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .iso-item{flex:1;min-width:80px;text-align:center;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
+    .iso-value{font-weight:700;font-size:13px}
+    .iso-desc{font-size:10px;color:var(--muted)}
+    .comparison{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .comparison h3{margin-bottom:12px}
+    .comparison-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+    .comp-item{text-align:center;padding:12px;background:var(--bg);border-radius:8px;min-width:0}
+    .comp-iso{font-weight:700;font-size:18px;color:var(--primary)}
+    .comp-desc{font-size:11px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p2">Lesson 8</span>
+    <h1>ISO — The Noise Knob</h1>
+    <div class="meta">
+      <span>Phase 2: Exposure Triangle</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>150 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Understand ISO as brightness/gain control, recognize noise vs detail trade-off, and set Auto ISO limits.</p>
+    </section>
+
+    <section>
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>ISO = sensor sensitivity (gain), not "sensitivity to light"</li>
+        <li>Base ISO (100) = cleanest image, max dynamic range</li>
+        <li>Higher ISO = brighter image but added grain/noise</li>
+        <li>R7 native ISO range: 100-32,000 (expandable 50-51,200)</li>
+        <li>Auto ISO with max limit = game changer for events</li>
+        <li>Modern sensors: ISO 3200-6400 still very usable on R7</li>
+      </ul>
+    </section>
+
+    <div class="iso-ruler">
+      <h3>📊 ISO Ruler — R7 Reality Check</h3>
+      <div class="iso-row">
+        <div class="iso-item"><div class="iso-value">50</div><div class="iso-desc">Extended</div></div>
+        <div class="iso-item"><div class="iso-value">100</div><div class="iso-desc">Base — clean</div></div>
+        <div class="iso-item"><div class="iso-value">200</div><div class="iso-desc">Clean</div></div>
+        <div class="iso-item"><div class="iso-value">400</div><div class="iso-desc">Clean</div></div>
+        <div class="iso-item"><div class="iso-value">800</div><div class="iso-desc">Very clean</div></div>
+        <div class="iso-item"><div class="iso-value">1600</div><div class="iso-desc">Very usable</div></div>
+        <div class="iso-item"><div class="iso-value">3200</div><div class="iso-desc">Very usable</div></div>
+        <div class="iso-item"><div class="iso-value">6400</div><div class="iso-desc">Usable + NR</div></div>
+        <div class="iso-item"><div class="iso-value">12800</div><div class="iso-desc">Grainy but OK</div></div>
+        <div class="iso-item"><div class="iso-value">25600</div><div class="iso-desc">Heavy grain</div></div>
+        <div class="iso-item"><div class="iso-value">51200</div><div class="iso-desc">Emergency only</div></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>The ISO Trade-off</h2>
+      <ul>
+        <li><strong>ISO 100-400:</strong> Pristine, max dynamic range, needs light</li>
+        <li><strong>ISO 800-3200:</strong> Sweet spot for events, barely visible noise</li>
+        <li><strong>ISO 6400:</strong> Very usable with light noise reduction</li>
+        <li><strong>ISO 12800+:</strong> Grain becomes character, use for "the shot"</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Auto ISO — Set It and Forget It</h2>
+      <ol>
+        <li>Menu → ISO speed settings → Auto ISO range: 100-6400 (or 12800)</li>
+        <li>Minimum shutter speed: 1/125 (or 1/focal length)</li>
+        <li>Camera raises ISO before dropping shutter below limit</li>
+        <li>You still control aperture (Av) or shutter (Tv)</li>
+      </ol>
+      <p><strong>Pro tip:</strong> Set max to 6400 for events, 3200 for portraits.</p>
+    </section>
+
+    <div class="comparison">
+      <h3>📸 R7 ISO Comparison (Mental Reference)</h3>
+      <div class="comparison-grid">
+        <div class="comp-item">
+          <div class="comp-iso">ISO 100</div>
+          <div class="comp-desc">Pristine, max DR</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-iso">ISO 1600</div>
+          <div class="comp-desc">Event sweet spot</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-iso">ISO 6400</div>
+          <div class="comp-desc">Dark gym, usable</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Same scene at ISO 100, 800, 6400.</strong> Same aperture/shutter (adjust lights if needed). Crop 100% zoom. Compare: noise, detail, color. Set Auto ISO max to 6400. Shoot an event with it.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=GmC5zyqxL4Q" target="_blank" class="video-link">ISO Explained For Beginners (Self Help Photographer)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain ISO as gain, not "sensitivity"</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Set Auto ISO max to 6400, min shutter 1/125</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot comparison at 100/800/6400 at 100% zoom</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can identify max usable ISO for your style</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="07-shutter.html" class="btn btn-secondary">← Previous</a>
+      <a href="09-manual.html" class="btn btn-primary">Next: Manual Mode →</a>
+    </div>
+  </div>
+</body>
+</html>

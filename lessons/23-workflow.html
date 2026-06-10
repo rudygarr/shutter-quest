@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 23: Event Workflow — Gear, Settings, Backup — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p6{background:linear-gradient(135deg,#ef4444,#dc2626)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .checklist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:16px 0}
+    .checklist-col{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .checklist-col h3{margin-bottom:12px;color:var(--primary)}
+    .checklist-col ul{margin-left:0;padding-left:0;list-style:none}
+    .checklist-col li{padding:4px 0;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p6">Lesson 23</span>
+    <h1>Event Workflow — Gear, Settings, Backup</h1>
+    <div class="meta">
+      <span>Phase 6: Event Photographer Mode</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>200 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Build a bulletproof event workflow. Gear prep, settings dialed, backup strategy, and crisis management. Zero surprises on game day.</p>
+    </section>
+
+    <section>
+      <h2>The Pro Gear Kit (What's in the Bag)</h2>
+      <div class="checklist-grid">
+        <div class="checklist-col">
+          <h3>📸 Bodies</h3>
+          <ul>
+            <li>Primary: R7 (or R6/R5)</li>
+            <li>Backup: R8 / RP / 2nd R7</li>
+            <li>Same battery (LP-E6NH)</li>
+          </ul>
+        </div>
+        <div class="checklist-col">
+          <h3>🔍 Lenses (The Trinity)</h3>
+          <ul>
+            <li>Wide: 16-35mm f/2.8 or 24-70mm f/2.8</li>
+            <li>Normal: 50mm f/1.8 or 85mm f/1.8</li>
+            <li>Tele: 70-200mm f/2.8 or 135mm f/1.8</li>
+          </ul>
+        </div>
+        <div class="checklist-col">
+          <h3>⚡ Power</h3>
+          <ul>
+            <li>4x LP-E6NH batteries</li>
+            <li>2x USB-C PD power banks</li>
+            <li>Dual charger (charge 2 at once)</li>
+            <li>In-camera charging (USB-C PD)</li>
+          </ul>
+        </div>
+        <div class="checklist-col">
+          <h3>💾 Storage</h3>
+          <ul>
+            <li>4x CFexpress Type B (512GB/1TB)</li>
+            <li>2x SD UHS-II (backup)</li>
+            <li>Card wallet (organized)</li>
+            <li>USB-C card reader (CFAST/CFe)</li>
+          </ul>
+        </div>
+        <div class="checklist-col">
+          <h3>⚡ Flash & Light</h3>
+          <ul>
+            <li>Speedlite: 600EX II-RT or EL-1</li>
+            <li>Diffuser dome + bounce card</li>
+            <li>AA batteries (Eneloop Pro x8)</li>
+            <li>Radio trigger (ST-E3-RT)</li>
+          </ul>
+        </div>
+        <div class="checklist-col">
+          <h3>🎒 Essentials</h3>
+          <ul>
+            <li>Dual camera strap (BlackRapid/Peak Design)</li>
+            <li>Rain covers (camera + flash)</li>
+            <li>Microfiber cloths x4</li>
+            <li>Lens pens + rocket blower</li>
+            <li>Gaffer tape + zip ties</li>
+            <li>Business cards + contract</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pre-Event Settings Baseline (Set Night Before)</h2>
+      <ul>
+        <li><strong>Mode:</strong> Av (Aperture Priority)</li>
+        <li><strong>Auto ISO:</strong> 100-6400 (Max), Min Shutter: 1/250</li>
+        <li><strong>Focus:</strong> AI Servo + Eye AF + Zone AF</li>
+        <li><strong>Drive:</strong> High Speed Continuous (15fps mech / 30fps electronic)</li>
+        <li><strong>WB:</strong> Custom Kelvin (start 5500K) or AWB</li>
+        <li><strong>File:</strong> RAW (C-RAW) + JPEG (slot 2)</li>
+        <li><strong>Dual Card:</strong> RAW to CFexpress, JPEG to SD</li>
+        <li><strong>Flash:</strong> ETTL, FEC -1, HSS ready</li>
+        <li><strong>Custom Modes:</strong> C1=Event, C2=Portrait, C3=Sports</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Battery & Card Management During Event</h2>
+      <ul>
+        <li><strong>Battery swap at 30%:</strong> Never wait for red</li>
+        <li><strong>Rotate batteries:</strong> 4 batteries → 2 in charger, 2 in cameras</li>
+        <li><strong>Card swap at 50%:</strong> Never fill a card completely</li>
+        <li><strong>Dual slot = instant backup:</strong> Never format until home + verified</li>
+        <li><strong>Cull in-camera:</strong> Rate 1-5 stars during downtime</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Crisis Playbook</h2>
+      <ul>
+        <li><strong>Flash dies:</strong> Bounce off wall, or wide + high ISO + wide aperture</li>
+        <li><strong>Battery dies:</strong> Swap body (that's why you have 2)</li>
+        <li><strong>Card full/error:</strong> Swap card (that's why you have 4)</li>
+        <li><strong>AF hunting:</strong> Switch to 1-point + center, or MF + peaking</li>
+        <li><strong>Flash recycle slow:</strong> Lower FEC, raise ISO, wider aperture</li>
+        <li><strong>Lens error:</strong> Clean contacts, swap lens (that's why you have 3)</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Pack your bag for a 4-hour event.</strong> Lay out everything. Photograph the packed bag. Explain each item in 1 sentence. Time yourself — under 10 minutes? Unpack, repack, time again.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=kaAvl9Rl9Uc" target="_blank" class="video-link">How To Prep Your Photography Gear Before A Gig</a>
+      <br><br>
+      <a href="https://www.jeffgeerling.com/blog/2016/how-shoot-large-event-photography-gear-workflow/" target="_blank" class="video-link">How to Shoot a Large Event (Jeff Geerling)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Packed full event kit (2 bodies, 3 lenses, 4 batteries, 4 cards, flash)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Set all custom modes (C1 Event, C2 Portrait, C3 Sports)</li>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Dual card: RAW to CFexpress, JPEG to SD verified</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Custom modes C1/C2/C3 set and tested</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Crisis playbook memorized (or printed in bag)</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="22-storytelling.html" class="btn btn-secondary">← Previous</a>
+      <a href="24-culling.html" class="btn btn-primary">Next: The Live Edit →</a>
+    </div>
+  </div>
+</body>
+</html>

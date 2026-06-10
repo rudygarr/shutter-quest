@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 19: Rule of Thirds — The Grid That Works — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--pink:#ec4899;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p5{background:linear-gradient(135deg,#ec4899,#db2777)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .grid-demo{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0;text-align:center}
+    .grid-demo h3{margin-bottom:12px}
+    .grid-svg{width:100%;max-width:400px;height:auto;margin:0 auto}
+    .rule-grid{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin:16px 0}
+    .rule-grid h3{margin-bottom:12px}
+    .rule-grid ul{margin-left:0;padding-left:0;list-style:none}
+    .rule-grid li{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .rule-grid li:last-child{border-bottom:none}
+    .rule-grid .icon{font-size:18px;flex-shrink:0}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p5">Lesson 19</span>
+    <h1>Rule of Thirds — The Grid That Works</h1>
+    <div class="meta">
+      <span>Phase 5: Composition & Story</span>
+      <span>✍️ Creative (MiniMax/Qwen)</span>
+      <span>100 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Master the 3x3 grid. Place subjects on intersections for instant visual tension. Turn on grid in R7 and never center again (unless you mean it).</p>
+    </section>
+
+    <div class="grid-demo">
+      <h3>📐 The 3x3 Grid</h3>
+      <svg class="grid-svg" viewBox="0 0 300 300">
+        <rect width="300" height="300" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <line x1="100" y1="0" x2="100" y2="300" stroke="var(--primary)" stroke-width="2" stroke-dasharray="8,4"/>
+        <line x1="200" y1="0" x2="200" y2="300" stroke="var(--primary)" stroke-width="2" stroke-dasharray="8,4"/>
+        <line x1="0" y1="100" x2="300" y2="100" stroke="var(--primary)" stroke-width="2" stroke-dasharray="8,4"/>
+        <line x1="0" y1="200" x2="300" y2="200" stroke="var(--primary)" stroke-width="2" stroke-dasharray="8,4"/>
+        <circle cx="100" cy="100" r="8" fill="var(--primary)"/>
+        <circle cx="200" cy="100" r="8" fill="var(--primary)"/>
+        <circle cx="100" cy="200" r="8" fill="var(--primary)"/>
+        <circle cx="200" cy="200" r="8" fill="var(--primary)"/>
+      </svg>
+      <p style="margin-top:12px;color:var(--muted);font-size:13px;">4 power points = where lines intersect. Place eyes, horizon, subject here.</p>
+    </div>
+
+    <section>
+      <h2>Why It Works</h2>
+      <ul>
+        <li>Center = static, predictable, "snapshot"</li>
+        <li>Thirds = dynamic, breathing room, eye travels</li>
+        <li>Intersections = natural focal points for human eye</li>
+        <li>Horizon on top/bottom line = emphasis choice</li>
+      </ul>
+    </section>
+
+    <div class="rule-grid">
+      <h3>📐 Quick Rules</h3>
+      <ul>
+        <li><span class="icon">👁️</span><strong>Portraits:</strong> Eyes on top horizontal line, inner eye on intersection</li>
+        <li><span class="icon">🏞️</span><strong>Landscapes:</strong> Horizon on top line (sky drama) or bottom line (foreground drama)</li>
+        <li><span class="icon">🏃</span><strong>Action:</strong> Subject on left third, moving INTO frame (right third space)</li>
+        <li><span class="icon">🌅</span><strong>Sunsets:</strong> Horizon on bottom third, sky takes 2/3</li>
+        <li><span class="icon">📱</span><strong>R7 Grid:</strong> Menu → Grid display → 3x3 → On</li>
+      </ul>
+    </div>
+
+    <section>
+      <h2>When to Break It</h2>
+      <ul>
+        <li><strong>Symmetry:</strong> Perfect reflection, architecture, centered face = power</li>
+        <li><strong>Minimalism:</strong> Tiny subject, vast negative space = isolation</li>
+        <li><strong>Impact:</strong> Dead center = confrontation, intensity, "look at me"</li>
+        <li><strong>Rule of Odds:</strong> 3, 5, 7 subjects more pleasing than even numbers</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>R7 Grid Setup</h2>
+      <ol>
+        <li>Menu (wrench icon) → Grid display</li>
+        <li>3x3 grid → On</li>
+        <li>Display level → On (helps horizons)</li>
+        <li>Grid color: White (easiest to see)</li>
+      </ol>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>5 photos using rule of thirds grid.</strong> Turn grid ON. Shoot: (1) Portrait with eye on intersection, (2) Landscape with horizon on bottom third, (3) Action with subject on left third moving right, (4) Sunset with horizon on top third, (5) Your choice — but NO centered subjects.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=FBHw5dVf5VA" target="_blank" class="video-link">A Photographer's Guide to the Rule of Thirds</a>
+      <br><br>
+      <a href="https://digital-photography-school.com/rule-of-thirds/" target="_blank" class="video-link">Rule of Thirds: The Essential Guide (Digital Photography School)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Grid display ON in R7</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> 5 photos with subjects on intersections/lines</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain when to break the rule (symmetry, minimalism)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Level display ON for straight horizons</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="18-flash.html" class="btn btn-secondary">← Previous</a>
+      <a href="20-leading-lines.html" class="btn btn-primary">Next: Leading Lines →</a>
+    </div>
+  </div>
+</body>
+</html>

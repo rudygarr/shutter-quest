@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11: Exposure Triangle Challenge — Boss Battle — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;--purple:#a855f7;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p2{background:linear-gradient(135deg,#f97316,#ea580c)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .mission-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0}
+    .mission-card h3{margin-bottom:12px;color:var(--primary)}
+    .mission-card .settings{font-family:monospace;background:var(--bg);padding:8px 12px;border-radius:6px;margin:8px 0;display:inline-block}
+    .xp-badge{display:inline-block;background:linear-gradient(135deg,var(--warning),var(--orange));color:#000;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;margin-left:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p2">Lesson 11</span>
+    <h1>Exposure Triangle Challenge — Boss Battle</h1>
+    <div class="meta">
+      <span>Phase 2: Exposure Triangle</span>
+      <span>👑 CEO (Nemotron 3 Ultra)</span>
+      <span>300 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Prove you own the Exposure Triangle. Recreate 3 iconic looks using ONLY Manual mode. No Auto, no Av, no Tv. Just you and the big M.</p>
+    </section>
+
+    <section>
+      <h2>The Three Missions</h2>
+      <p>Each mission gives you a LOOK. You figure out the settings. Shoot, review, adjust, nail it.</p>
+    </section>
+
+    <div class="mission-card">
+      <h3>🎯 Mission 1: "Golden Hour Portrait"</h3>
+      <p><strong>The Look:</strong> Subject separated from dreamy background, warm golden light, tack-sharp eyes.</p>
+      <div class="settings">Target: f/1.8–f/2.8 • 1/250–1/500 • ISO 100–400</div>
+      <p>Hints: Wide aperture for separation. Fast enough shutter for micro-movements. Low ISO for clean skin. Watch for backlight!</p>
+      <span class="xp-badge">50 XP</span>
+    </div>
+
+    <div class="mission-card">
+      <h3>🎯 Mission 2: "Landscape Layer Cake"</h3>
+      <p><strong>The Look:</strong> Foreground rock sharp, mid-ground trees sharp, background mountains sharp. Deep depth of field.</p>
+      <div class="settings">Target: f/11–f/16 • 1/125+ • ISO 100</div>
+      <p>Hints: Narrow aperture for depth. Tripod helps. Focus 1/3 into scene. Watch shutter if wind moves grass.</div>
+      <span class="xp-badge">50 XP</span>
+    </div>
+
+    <div class="mission-card">
+      <h3>🎯 Mission 3: "Frozen Splash"</h3>
+      <p><strong>The Look:</strong> Water droplet frozen mid-air, crisp edges, no motion blur. Frozen moment invisible to eye.</p>
+      <div class="settings">Target: 1/1000+ • f/4–f/5.6 • ISO 400–800</div>
+      <p>Hints: Fast shutter freezes water. Aperture wide enough for light, narrow enough for droplet sharpness. Burst mode + timing.</div>
+      <span class="xp-badge">50 XP</span>
+    </div>
+
+    <div class="mission-card">
+      <h3>🎯 Mission 4: "Night Street Panning"</h3>
+      <p><strong>The Look:</strong> Car sharp, background light-streaked. Motion frozen on subject, environment blurred with color streaks.</p>
+      <div class="settings">Target: 1/30 • f/8 • ISO 100 • Night</div>
+      <p>Hints: Panning technique. AI Servo + Zone AF. Follow through. 1/30 = Goldilocks for 30-40mph.</div>
+      <span class="xp-badge">50 XP</span>
+    </div>
+
+    <div class="mission-card">
+      <h3>🎯 Mission 5: "High Key Dream"</h3>
+      <p><strong>The Look:</strong> Bright, airy, slightly overexposed on purpose. Soft, dreamy, "Instagram aesthetic."</p>
+      <div class="settings">Target: f/2.8 • 1/250 • ISO 200 • +1.5 EV</div>
+      <p>Hints: Deliberate overexposure. Wide aperture for softness. +1.5 EV on purpose. White dress/background works best.</div>
+      <span class="xp-badge">50 XP</span>
+    </div>
+
+    <div class="mission-card">
+      <h3>🎯 Mission 5: "Silhouette Sunset"</h3>
+      <p><strong>The Look:</strong> Subject pure black, sky burning with color. Shape tells story, no detail needed.</p>
+      <div class="settings">Target: f/8 • 1/500+ • ISO 100 • -2 EV</div>
+      <p>Hints: Expose for SKY, not subject. Spot meter off sky. -2 EV locks subject black. Shape must be recognizable.</div>
+      <span class="xp-badge">50 XP</span>
+    </div>
+
+    <section>
+      <h2>🏆 Boss Battle Rules</h2>
+      <ul>
+        <li>Mode dial: <strong>M only</strong> — no Av, Tv, P, Auto</li>
+        <li>No auto ISO — you set it</li>
+        <li>No exposure compensation — you own the meter</li>
+        <li>Each mission: Shoot → Review 100% → Adjust → Reshoot until perfect</li>
+        <li>Upload final 6 images (1 per mission) with EXIF intact</li>
+        <li>Write 1-sentence "cheat code" for each mission for future you</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">👑 Final Boss: The 6-Mission Gauntlet</div>
+      <p>Complete all 6 missions in ONE shooting session. No breaks longer than 5 min. Upload all 6 with cheat codes. <strong>Reward: 300 XP + "Exposure Triangle Master" badge + Unlock Manual-only missions.</strong></p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First (Refresher)</div>
+      <a href="https://www.youtube.com/watch?v=_tyYwbnhVCU" target="_blank" class="video-link">Exposure Triangle Made Easy (10 min refresher)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Mission 1: Golden Hour Portrait (f/1.8-2.8, 1/250+, ISO 100-400)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Mission 2: Landscape Layer Cake (f/11-16, 1/125+, ISO 100)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Mission 3: Frozen Splash (1/1000+, f/4-5.6, ISO 400-800)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Mission 4: Night Street Panning (1/30, f/8, ISO 100)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Mission 5: High Key Dream (+1.5 EV, f/2.8, ISO 200)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Mission 6: Silhouette Sunset (-2 EV, f/8, 1/500+, ISO 100)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> All 6 cheat codes written and saved</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> All 6 images uploaded with EXIF intact</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="10-ec.html" class="btn btn-secondary">← Previous</a>
+      <a href="12-focus-modes.html" class="btn btn-primary">Next: Focus Modes →</a>
+    </div>
+  </div>
+</body>
+</html>

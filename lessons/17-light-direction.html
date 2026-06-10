@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 17: Light Direction — The Free Studio — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f59e0b;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p4{background:linear-gradient(135deg,#f59e0b,#d97706)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .light-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0}
+    .light-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+    .light-card .icon{font-size:28px;margin-bottom:8px}
+    .light-card h3{margin-bottom:8px;color:var(--primary);font-size:14px}
+    .light-card p{font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p4">Lesson 17</span>
+    <h1>Light Direction — The Free Studio</h1>
+    <div class="meta">
+      <span>Phase 4: Color & Light</span>
+      <span>✍️ Creative (MiniMax/Qwen)</span>
+      <span>100 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Read light like a pro. Front, side, back, top — each direction creates a completely different mood. The sun is your free studio.</p>
+    </section>
+
+    <div class="light-grid">
+      <div class="light-card">
+        <div class="icon">☀️</div>
+        <h3>Front Light</h3>
+        <p>Light behind camera → subject lit evenly</p>
+      </div>
+      <div class="light-card">
+        <div class="icon">🌤️</div>
+        <h3>Side Light</h3>
+        <p>Light at 45-90° → depth, texture, drama</p>
+      </div>
+      <div class="light-card">
+        <div class="icon">🌅</div>
+        <h3>Back Light</h3>
+        <p>Light behind subject → rim, silhouette, glow</p>
+      </div>
+      <div class="light-card">
+        <div class="icon">🌞</div>
+        <h3>Top Light</h3>
+        <p>Noon sun/overhead → harsh shadows under eyes</p>
+      </div>
+      <div class="light-card">
+        <div class="icon">🌅</div>
+        <h3>Rim/Hair Light</h3>
+        <p>Back + slightly above → separates subject</p>
+      </div>
+      <div class="light-card">
+        <div class="icon">🪞</div>
+        <h3>Reflected Light</h3>
+        <p>Wall/water/sand bouncing → soft fill</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>What Each Direction Does</h2>
+      <ul>
+        <li><strong>Front:</strong> Flat, even, "safe" — minimal shadows, shows all detail, least dramatic</li>
+        <li><strong>Side (45°):</strong> The sweet spot — one side lit, one shadowed → 3D shape, texture revealed</li>
+        <li><strong>Side (90°):</strong> Split lighting — half face lit, half shadow → dramatic, mysterious</li>
+        <li><strong>Back:</strong> Subject dark, rim of light around edges → silhouette or halo</li>
+        <li><strong>Top:</strong> "Raccoon eyes" — shadows under eyes, nose, chin. Avoid for portraits.</li>
+        <li><strong>Bottom:</strong> "Horror lighting" — unnatural, spooky, creative only</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Golden Hour & Blue Hour — Magic Hours</h2>
+      <ul>
+        <li><strong>Golden Hour:</strong> 1hr after sunrise / 1hr before sunset. Warm, soft, directional. Best light ever.</li>
+        <li><strong>Blue Hour:</strong> 30min after sunset / before sunrise. Deep blue sky, city lights on. Cool, moody.</li>
+        <li><strong>Midday:</strong> Harsh, top-down. Use shade, diffuser, or flash.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Reading Light — The Photographer's Superpower</h2>
+      <ul>
+        <li>Look at shadows: hard edge = hard light, soft edge = soft light</li>
+        <li>Look at catchlights in eyes: reveals light source position/size</li>
+        <li>Squint! Squinting reduces dynamic range → you see light/shadow pattern clearly</li>
+        <li>Walk around subject: watch how light changes on face</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Golden Hour Challenge — The "Turn Around" Test</h2>
+      <p>During golden hour, put subject in same spot. Shoot: front lit, side lit, back lit, rim lit. Same spot, 4 completely different looks. The light does the work, you just move.</p>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Front, side, back, top, rim, reflected.</strong> Same subject, same spot, 6 different light directions. Use reflector (white poster board) for fill on back-lit. Compare: mood, dimension, story.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=TkxXU4XJ7ac" target="_blank" class="video_link">Best Light Direction for Photography: Front, Side, Back Lighting</a>
+      <br><br>
+      <a href="https://www.learningwithexperts.com/blogs/articles/understanding-lighting-direction" target="_blank" class="video-link">Understanding Lighting: Front, Back & Side Light</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can identify 6 light directions by looking at shadows</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot same subject in 6 light directions</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Used reflector for fill on back-lit subject</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain why side light = drama, front light = flat</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Identified golden hour vs blue hour light quality</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="16-wb.html" class="btn btn-secondary">← Previous</a>
+      <a href="18-flash.html" class="btn btn-primary">Next: Flash →</a>
+    </div>
+  </div>
+</body>
+</html>

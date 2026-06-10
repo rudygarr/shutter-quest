@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shutter Quest — Canon R7 Photography Curriculum</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;--purple:#a855f7;--pink:#ec4899;--gold:#fbbf24;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:1000px;margin:0 auto}
+    .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:16px}
+    .brand-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--blue));display:flex;align-items:center;justify-content:center;font-size:28px}
+    .brand-text h1{font-size:28px;font-weight:800;margin-bottom:4px}
+    .brand-text p{color:var(--muted);font-size:14px}
+    .header-actions{display:flex;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:12px;font-weight:600;text-decoration:none;font-size:14px}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:32px}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+    .stat-value{font-size:32px;font-weight:800;color:var(--primary)}
+    .stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
+    .phase{margin-bottom:32px}
+    .phase-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid}
+    .phase-title{font-size:22px;font-weight:800}
+    .phase-lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+    .lesson-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:all 0.2s;position:relative}
+    .lesson-card:hover{border-color:var(--primary);box-shadow:0 10px 40px rgba(34,197,94,0.15);transform:translateY(-2px)}
+    .lesson-badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;font-weight:700;font-size:13px;color:#000;margin-bottom:12px}
+    .p1{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+    .p2{background:linear-gradient(135deg,#f97316,#ea580c)}
+    .p3{background:linear-gradient(135deg,#a855f7,#9333ea)}
+    .p4{background:linear-gradient(135deg,#f59e0b,#d97706)}
+    .p5{background:linear-gradient(135deg,#ec4899,#db2777)}
+    .p6{background:linear-gradient(135deg,#ef4444,#dc2626)}
+    .lesson-title{font-weight:700;font-size:15px;margin-bottom:8px;line-height:1.3}
+    .lesson-meta{display:flex;gap:12px;margin-bottom:16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+    .lesson-meta span{display:flex;align-items:center;gap:4px}
+    .lesson-xp{background:rgba(251,191,36,0.2);color:var(--gold);padding:2px 8px;border-radius:100px;font-size:11px;font-weight:700}
+    .lesson-agent{font-size:11px;color:var(--muted)}
+    .lesson-challenge{font-size:13px;color:var(--text-muted);margin:16px 0;padding:12px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:8px;line-height:1.5}
+    .lesson-actions{display:flex;gap:8px}
+    .btn-sm{padding:10px 16px;font-size:12px}
+    .lab-card{background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(59,130,246,0.1));border:1px solid var(--primary);border-radius:16px;padding:24px;margin-bottom:32px}
+    .lab-card h2{margin-bottom:12px}
+    .lab-card p{color:var(--muted);margin-bottom:16px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">📸</div>
+        <div class="brand-text">
+          <h1>Shutter Quest</h1>
+          <p>Canon R7 Photography Curriculum</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="practice-lab.html" class="btn btn-primary">🧪 Practice Lab</a>
+        <a href="https://rudygarr.github.io/shutter-quest/" class="btn btn-secondary" target="_blank">Live Site</a>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card"><div class="stat-value">25</div><div class="stat-label">Lessons</div></div>
+      <div class="stat-card"><div class="stat-value">6</div><div class="stat-label">Phases</div></div>
+      <div class="stat-card"><div class="stat-value">2,750</div><div class="stat-label">Total XP</div></div>
+      <div class="stat-card"><div class="stat-value">∞</div><div class="stat-label">Practice</div></div>
+    </div>
+
+    <div class="lab-card">
+      <h2>🧪 Practice Lab — Interactive Simulators</h2>
+      <p>Master camera settings before you shoot. Sliders for aperture, shutter, ISO, focus, WB, and light direction with live preview.</p>
+      <a href="practice-lab.html" class="btn btn-primary">Open Practice Lab →</a>
+    </div>
+
+    <!-- PHASE 1 -->
+    <div class="phase">
+      <div class="phase-header" style="border-color:#3b82f6;">
+        <h2 class="phase-title" style="color:#3b82f6;">Phase 1: Hold This Thing</h2>
+        <span style="color:#3b82f6;font-weight:600;">Lessons 1-5 · 500 XP</span>
+      </div>
+      <div class="phase-lessons">
+        <article class="lesson-card">
+          <span class="lesson-badge p1">1</span>
+          <h3 class="lesson-title">Unboxing the Beast</h3>
+          <div class="lesson-meta">
+            <span>Phase 1</span>
+            <span class="lesson-xp">100 XP</span>
+            <span class="lesson-agent">🤖 Together Coder</span>
+          </div>
+          <p class="lesson-challenge">🎯 Challenge: Take 10 photos of anything. Just click. Get comfortable with the R7 in your hands.</p>
+          <div class="lesson-actions">
+            <a href="lessons/01-unboxing.html" class="btn btn-primary btn-sm">Start Lesson</a>
+          </div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p1">2</span>
+          <h3 class="lesson-title">Auto Mode — Training Wheels</h3>
+          <div class="lesson-meta">
+            <span>Phase 1</span>
+            <span class="lesson-xp">100 XP</span>
+            <span class="lesson-agent">🤖 Together Coder</span>
+          </div>
+          <p class="lesson-challenge">🎯 Challenge: Shoot 5 things: red, round, moving, tiny, huge. Use Scene Intelligent Auto.</p>
+          <div class="lesson-actions">
+            <a href="lessons/02-auto.html" class="btn btn-primary btn-sm">Start Lesson</a>
+          </div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p1">3</span>
+          <h3 class="lesson-title">Hold Me Like You Mean It</h3>
+          <div class="lesson-meta">
+            <span>Phase 1</span>
+            <span class="lesson-xp">100 XP</span>
+            <span class="lesson-agent">🤖 Together Coder</span>
+          </div>
+          <p class="lesson-challenge">🎯 Challenge: 10 sharp photos of a stationary object. Proper grip, stance, breathing, shutter press.</p>
+          <div class="lesson-actions">
+            <a href="lessons/03-grip.html" class="btn btn-primary btn-sm">Start Lesson</a>
+          </div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p1">4</span>
+          <h3 class="lesson-title">EVF vs LCD — Pick Your Window</h3>
+          <div class="lesson-meta">
+            <span>Phase 1</span>
+            <span class="lesson-xp">100 XP</span>
+            <span class="lesson-agent">🤖 Together Coder</span>
+          </div>
+          <p class="lesson-challenge">🎯 Challenge: 5 shots EVF only, 5 shots LCD only. Compare sharpness, exposure, comfort.</p>
+          <div class="lesson-actions">
+            <a href="lessons/04-viewfinder.html" class="btn btn-primary btn-sm">Start Lesson</a>
+          </div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p1">5</span>
+          <h3 class="lesson-title">Zoom With Your Feet</h3>
+          <div class="lesson-meta">
+            <span>Phase 1</span>
+            <span class="lesson-xp">100 XP</span>
+            <span class="lesson-agent">🤖 Together Coder</span>
+          </div>
+          <p class="lesson-challenge">🎯 Challenge: Same subject at 24mm, 50mm, 105mm, 200mm. Move feet to keep subject same size.</p>
+          <div class="lesson-actions">
+            <a href="lessons/05-zoom.html" class="btn btn-primary btn-sm">Start Lesson</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase">
+      <div class="phase-header" style="border-color:#f97316;">
+        <h2 class="phase-title" style="color:#f97316;">Phase 2: Exposure Triangle</h2>
+        <span style="color:#f97316;font-weight:600;">Lessons 6-11 · 1,100 XP</span>
+      </div>
+      <div class="phase-lessons">
+        <article class="lesson-card">
+          <span class="lesson-badge p2">6</span>
+          <h3 class="lesson-title">Aperture — The Bokeh Button</h3>
+          <div class="lesson-meta"><span>Phase 2</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Portrait at f/1.8, landscape at f/11. Compare background blur, subject separation.</p>
+          <div class="lesson-actions"><a href="lessons/06-aperture.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p2">7</span>
+          <h3 class="lesson-title">Shutter — Freeze vs Blur</h3>
+          <div class="lesson-meta"><span>Phase 2</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">⚡ Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Freeze a jump, blur a car, pan a bike. Three shots with different shutter speeds.</p>
+          <div class="lesson-actions"><a href="lessons/07-shutter.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p2">8</span>
+          <h3 class="lesson-title">ISO — The Noise Knob</h3>
+          <div class="lesson-meta"><span>Phase 2</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Same scene at ISO 100, 800, 6400. Compare noise, detail, color at 100% zoom.</p>
+          <div class="lesson-actions"><a href="lessons/08-iso.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p2">9</span>
+          <h3 class="lesson-title">Manual Mode — The Big Leagues</h3>
+          <div class="lesson-meta"><span>Phase 2</span><span class="lesson-xp">200 XP</span><span class="lesson-agent">👑 CEO (Nemotron)</span></div>
+          <p class="lesson-challenge">🎯 5 manual shots in different light. Sunny, shade, backlit, indoor, mixed. No Auto modes.</p>
+          <div class="lesson-actions"><a href="lessons/09-manual.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p2">10</span>
+          <h3 class="lesson-title">Exposure Comp — The Cheat Code</h3>
+          <div class="lesson-meta"><span>Phase 2</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Backlit portrait +2EV, snow +1.5EV, silhouette -2EV. Compare to 0EV.</p>
+          <div class="lesson-actions"><a href="lessons/10-ec.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p2">11</span>
+          <h3 class="lesson-title">Exposure Triangle Challenge — Boss Battle</h3>
+          <div class="lesson-meta"><span>Phase 2</span><span class="lesson-xp">300 XP</span><span class="lesson-agent">👑 CEO (Nemotron)</span></div>
+          <p class="lesson-challenge">🏆 6 missions in Manual only: Portrait, Landscape, Frozen Splash, Panning, High Key, Silhouette.</p>
+          <div class="lesson-actions"><a href="lessons/11-challenge.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase">
+      <div class="phase-header" style="border-color:#a855f7;">
+        <h2 class="phase-title" style="color:#a855f7;">Phase 3: Focus Like a Pro</h2>
+        <span style="color:#a855f7;font-weight:600;">Lessons 12-15 · 650 XP</span>
+      </div>
+      <div class="phase-lessons">
+        <article class="lesson-card">
+          <span class="lesson-badge p3">12</span>
+          <h3 class="lesson-title">Focus Modes — One Shot vs Servo vs AI</h3>
+          <div class="lesson-meta"><span>Phase 3</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Portrait (One Shot), running kid (Servo), unpredictable toddler (AI Focus). Compare hit rates.</p>
+          <div class="lesson-actions"><a href="lessons/12-focus-modes.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p3">13</span>
+          <h3 class="lesson-title">Focus Areas — Point, Zone, Wide, Face/Eye</h3>
+          <div class="lesson-meta"><span>Phase 3</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Portrait (Eye AF), group (Zone), action (Wide), chaos (Wide+Servo). Test all 6 areas.</p>
+          <div class="lesson-actions"><a href="lessons/13-focus-areas.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p3">14</span>
+          <h3 class="lesson-title">Focus & Recompose — When It Fails</h3>
+          <div class="lesson-meta"><span>Phase 3</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 5 portraits at f/4, f/2.8, f/1.8 using focus-recompose. Check 100% zoom. Then use Eye AF.</p>
+          <div class="lesson-actions"><a href="lessons/14-recompose.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p3">15</span>
+          <h3 class="lesson-title">Focus Stacking & MF Peaking</h3>
+          <div class="lesson-meta"><span>Phase 3</span><span class="lesson-xp">200 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 15-shot macro stack + MF peaking on 3 subjects. Compare stacked vs single shot.</p>
+          <div class="lesson-actions"><a href="lessons/15-focus-stacking.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase">
+      <div class="phase-header" style="border-color:#f59e0b;">
+        <h2 class="phase-title" style="color:#f59e0b;">Phase 4: Color & Light</h2>
+        <span style="color:#f59e0b;font-weight:600;">Lessons 16-18 · 350 XP</span>
+      </div>
+      <div class="phase-lessons">
+        <article class="lesson-card">
+          <span class="lesson-badge p4">16</span>
+          <h3 class="lesson-title">White Balance — Stop the Orange People</h3>
+          <div class="lesson-meta"><span>Phase 4</span><span class="lesson-xp">100 XP</span><span class="lesson-agent">⚡ Together Fast</span></div>
+          <p class="lesson-challenge">🎯 AWB, Daylight, Shade, Cloudy, Custom Kelvin, Custom WB. Set 3500K for gym, 5500K flash.</p>
+          <div class="lesson-actions"><a href="lessons/16-wb.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p4">17</span>
+          <h3 class="lesson-title">Light Direction — The Free Studio</h3>
+          <div class="lesson-meta"><span>Phase 4</span><span class="lesson-xp">100 XP</span><span class="lesson-agent">✍️ Creative</span></div>
+          <p class="lesson-challenge">🎯 Same subject, 6 light directions: front, side, back, top, rim, reflected. Use reflector for fill.</p>
+          <div class="lesson-actions"><a href="lessons/17-light-direction.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p4">18</span>
+          <h3 class="lesson-title">Flash — The Pocket Sun</h3>
+          <div class="lesson-meta"><span>Phase 4</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">✍️ Creative</span></div>
+          <p class="lesson-challenge">🎯 Fill flash -1 FEC, bounce off ceiling, HSS at f/1.8. Compare all four: no flash, fill, bounce, HSS.</p>
+          <div class="lesson-actions"><a href="lessons/18-flash.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="phase">
+      <div class="phase-header" style="border-color:#ec4899;">
+        <h2 class="phase-title" style="color:#ec4899;">Phase 5: Composition & Story</h2>
+        <span style="color:#ec4899;font-weight:600;">Lessons 19-22 · 500 XP</span>
+      </div>
+      <div class="phase-lessons">
+        <article class="lesson-card">
+          <span class="lesson-badge p5">19</span>
+          <h3 class="lesson-title">Rule of Thirds — The Grid That Works</h3>
+          <div class="lesson-meta"><span>Phase 5</span><span class="lesson-xp">100 XP</span><span class="lesson-agent">✍️ Creative</span></div>
+          <p class="lesson-challenge">🎯 5 photos using grid: eye on intersection, horizon on third, action moving into frame.</p>
+          <div class="lesson-actions"><a href="lessons/19-rule-of-thirds.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p5">20</span>
+          <h3 class="lesson-title">Leading Lines, Frames & Layers</h3>
+          <div class="lesson-meta"><span>Phase 5</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">✍️ Creative</span></div>
+          <p class="lesson-challenge">🎯 3 photos: leading line to subject, frame within frame, 3 layers (FG/MG/BG).</p>
+          <div class="lesson-actions"><a href="lessons/20-leading-lines.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p5">21</span>
+          <h3 class="lesson-title">Event Photography — The Chaos Protocol</h3>
+          <div class="lesson-meta"><span>Phase 5</span><span class="lesson-xp">200 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Simulated event: 5 shots (wide, candid, group, detail, emotion) in 30 min. Cull to 3 best.</p>
+          <div class="lesson-actions"><a href="lessons/21-event-photo.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p5">22</span>
+          <h3 class="lesson-title">Storytelling — The 3-Shot Sequence</h3>
+          <div class="lesson-meta"><span>Phase 5</span><span class="lesson-xp">150 XP</span><span class="lesson-agent">✍️ Creative</span></div>
+          <p class="lesson-challenge">🎯 Wide → Medium → Tight story. One activity, 3 shots: where, who, what/feeling.</p>
+          <div class="lesson-actions"><a href="lessons/22-storytelling.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- PHASE 6 -->
+    <div class="phase">
+      <div class="phase-header" style="border-color:#ef4444;">
+        <h2 class="phase-title" style="color:#ef4444;">Phase 6: Event Photographer Mode</h2>
+        <span style="color:#ef4444;font-weight:600;">Lessons 23-25 · 950 XP</span>
+      </div>
+      <div class="phase-lessons">
+        <article class="lesson-card">
+          <span class="lesson-badge p6">23</span>
+          <h3 class="lesson-title">Event Workflow — Gear, Settings, Backup</h3>
+          <div class="lesson-meta"><span>Phase 6</span><span class="lesson-xp">200 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Pack bag for 4-hour event in 10 min. Explain every item. Dual-camera, dual-card, crisis playbook.</p>
+          <div class="lesson-actions"><a href="lessons/23-workflow.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p6">24</span>
+          <h3 class="lesson-title">The Live Edit — Cull, Rate, Deliver</h3>
+          <div class="lesson-meta"><span>Phase 6</span><span class="lesson-xp">250 XP</span><span class="lesson-agent">🤖 Together Coder</span></div>
+          <p class="lesson-challenge">🎯 Cull 50→10→5 in 8 min. Batch edit 5. Export web + full. Upload gallery with password.</p>
+          <div class="lesson-actions"><a href="lessons/24-culling.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+        <article class="lesson-card">
+          <span class="lesson-badge p6">25</span>
+          <h3 class="lesson-title">Portfolio & Pitch — THE FINAL BOSS</h3>
+          <div class="lesson-meta"><span>Phase 6</span><span class="lesson-xp">500 XP</span><span class="lesson-agent">👑 CEO (Nemotron)</span></div>
+          <p class="lesson-challenge">🏆 Build 15-image portfolio + 5-slide pitch deck. Record 3-min Loom. Present live for graduation.</p>
+          <div class="lesson-actions"><a href="lessons/25-capstone.html" class="btn btn-primary btn-sm">Start Lesson</a></div>
+        </article>
+      </div>
+    </div>
+
+    <footer style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);text-align:center;color:var(--muted);">
+      <p>Shutter Quest — Canon R7 Photography Curriculum</p>
+      <p style="margin-top:8px;font-size:13px;">Built with GitHub Pages · <a href="practice-lab.html" style="color:var(--primary);">Practice Lab</a> · <a href="https://rudygarr.github.io/shutter-quest/" target="_blank" style="color:var(--primary);">Live Site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

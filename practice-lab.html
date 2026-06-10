@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shutter Quest — Practice Lab</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;--purple:#a855f7;--pink:#ec4899;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:900px;margin:0 auto}
+    .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    .header h1{font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .tabs{display:flex;gap:8px;margin:24px 0;border-bottom:1px solid var(--border);padding-bottom:8px;overflow-x:auto}
+    .tab{padding:10px 20px;border-radius:8px;font-weight:600;color:var(--muted);background:transparent;border:none;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+    .tab.active{background:var(--primary);color:#000}
+    .tab:hover:not(.active){color:var(--text);background:var(--card)}
+    .panel{display:none}
+    .panel.active{display:block;animation:fadeIn 0.3s}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .simulator{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:24px}
+    .sim-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    .sim-controls{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+    .control-group{flex:1;min-width:180px}
+    .control-label{font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:8px;display:block}
+    .slider-container{position:relative}
+    .slider{width:100%;height:6px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:3px;outline:none}
+    .slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .slider-value{position:absolute;top:-28px;right:0;font-weight:700;color:var(--primary);font-family:monospace;font-size:14px}
+    .preview-area{background:#000;border-radius:12px;aspect-ratio:4/3;position:relative;overflow:hidden;margin-bottom:16px}
+    .preview-img{width:100%;height:100%;object-fit:cover;transition:filter 0.1s}
+    .preset-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .preset-btn{padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text);cursor:pointer;transition:all 0.2s}
+    .preset-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .preset-btn.active{background:var(--primary);color:#000;border-color:var(--primary)}
+    .lesson-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--primary);text-decoration:none;transition:all 0.2s}
+    .lesson-link:hover{border-color:var(--primary);background:var(--primary);color:#000}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🧪 Practice Lab</h1>
+      <a href="index.html" class="lesson-link">← Back to Curriculum</a>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="aperture">🎚️ Aperture</button>
+      <button class="tab" data-tab="shutter">⚡ Shutter</button>
+      <button class="tab" data-tab="iso">📊 ISO</button>
+      <button class="tab" data-tab="focus">🎯 Focus</button>
+      <button class="tab" data-tab="wb">🌡️ WB</button>
+      <button class="tab" data-tab="light">💡 Light</button>
+    </div>
+
+    <!-- APERTURE SIMULATOR -->
+    <div class="panel active" id="aperture">
+      <div class="simulator">
+        <div class="sim-header">
+          <h2>🎚️ Aperture Simulator</h2>
+          <a href="06-aperture.html" class="lesson-link">View Lesson 6</a>
+        </div>
+        <div class="sim-controls">
+          <div class="control-group">
+            <span class="control-label">Aperture (f-stop)</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="apertureSlider" min="0" max="9" value="4" step="1">
+              <span class="slider-value" id="apertureValue">f/2.8</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Subject Distance</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="apertureDistance" min="0" max="5" value="2" step="1">
+              <span class="slider-value" id="distanceValue">2m</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Focal Length</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="apertureFocal" min="0" max="5" value="2" step="1">
+              <span class="slider-value" id="focalValue">50mm</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-area">
+          <img class="preview-img" id="aperturePreview" src="https://picsum.photos/seed/aperture/800/600" alt="Aperture preview">
+          <div id="apertureDOF" style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,0.7);padding:12px;border-radius:8px;font-family:monospace;font-size:12px;color:#fff;"></div>
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn active" data-preset="portrait">Portrait f/1.8</button>
+          <button class="preset-btn" data-preset="group">Group f/4</button>
+          <button class="preset-btn" data-preset="landscape">Landscape f/11</button>
+          <button class="preset-btn" data-preset="macro">Macro f/16</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHUTTER SIMULATOR -->
+    <div class="panel" id="shutter">
+      <div class="simulator">
+        <div class="sim-header">
+          <h2>⚡ Shutter Speed Simulator</h2>
+          <a href="07-shutter.html" class="lesson-link">View Lesson 7</a>
+        </div>
+        <div class="sim-controls">
+          <div class="control-group">
+            <span class="control-label">Shutter Speed</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="shutterSlider" min="0" max="12" value="6" step="1">
+              <span class="slider-value" id="shutterValue">1/125</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Subject Speed</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="subjectSpeed" min="0" max="4" value="2" step="1">
+              <span class="slider-value" id="speedValue">Walking</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Focal Length</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="shutterFocal" min="0" max="5" value="2" step="1">
+              <span class="slider-value" id="sfocalValue">50mm</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-area">
+          <img class="preview-img" id="shutterPreview" src="https://picsum.photos/seed/shutter/800/600" alt="Shutter preview">
+          <div id="shutterBlur" style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,0.7);padding:12px;border-radius:8px;font-family:monospace;font-size:12px;color:#fff;"></div>
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="freeze">Freeze 1/1000</button>
+          <button class="preset-btn active" data-preset="normal">Normal 1/125</button>
+          <button class="preset-btn" data-preset="blur">Blur 1/30</button>
+          <button class="preset-btn" data-preset="pan">Pan 1/30</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISO SIMULATOR -->
+    <div class="panel" id="iso">
+      <div class="simulator">
+        <div class="sim-header">
+          <h2>📊 ISO Simulator</h2>
+          <a href="08-iso.html" class="lesson-link">View Lesson 8</a>
+        </div>
+        <div class="sim-controls">
+          <div class="control-group">
+            <span class="control-label">ISO</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="isoSlider" min="0" max="10" value="3" step="1">
+              <span class="slider-value" id="isoValue">ISO 400</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Light Level</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="lightLevel" min="0" max="4" value="2" step="1">
+              <span class="slider-value" id="lightValue">Indoor</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-area">
+          <img class="preview-img" id="isoPreview" src="https://picsum.photos/seed/iso/800/600" alt="ISO preview">
+          <div id="isoNoise" style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,0.7);padding:12px;border-radius:8px;font-family:monospace;font-size:12px;color:#fff;"></div>
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="sunny">Sunny ISO 100</button>
+          <button class="preset-btn active" data-preset="indoor">Indoor ISO 800</button>
+          <button class="preset-btn" data-preset="gym">Gym ISO 3200</button>
+          <button class="preset-btn" data-preset="night">Night ISO 6400</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOCUS SIMULATOR -->
+    <div class="panel" id="focus">
+      <div class="simulator">
+        <div class="sim-header">
+          <h2>🎯 Focus Mode Simulator</h2>
+          <a href="12-focus-modes.html" class="lesson-link">View Lesson 12</a>
+        </div>
+        <div class="sim-controls">
+          <div class="control-group" style="min-width:200px;">
+            <span class="control-label">Focus Mode</span>
+            <select id="focusMode" class="slider" style="padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);width:100%;font-size:14px;">
+              <option value="oneshot">One Shot AF (Static)</option>
+              <option value="servo" selected>AI Servo AF (Moving)</option>
+              <option value="aifocus">AI Focus AF (Auto)</option>
+            </select>
+          </div>
+          <div class="control-group" style="min-width:200px;">
+            <span class="control-label">AF Area</span>
+            <select id="focusArea" class="slider" style="padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);width:100%;font-size:14px;">
+              <option value="1point">1-Point AF</option>
+              <option value="zone" selected>Zone AF</option>
+              <option value="wide">Wide Area</option>
+              <option value="faceeye">Face/Eye Detection</option>
+            </select>
+          </div>
+          <div class="control-group" style="min-width:200px;">
+            <span class="control-label">Subject Type</span>
+            <select id="subjectType" class="slider" style="padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);width:100%;font-size:14px;">
+              <option value="portrait">Portrait (Still)</option>
+              <option value="action" selected>Running Kid</option>
+              <option value="group">Group Photo</option>
+              <option value="chaos">Chaos/Event</option>
+            </select>
+          </div>
+        </div>
+        <div class="preview-area">
+          <img class="preview-img" id="focusPreview" src="https://picsum.photos/seed/focus/800/600" alt="Focus preview">
+          <div id="focusRecommendation" style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,0.7);padding:12px;border-radius:8px;font-family:monospace;font-size:12px;color:#fff;"></div>
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="portrait">Portrait: One Shot + 1-Point</button>
+          <button class="preset-btn" data-preset="sports">Sports: Servo + Zone</button>
+          <button class="preset-btn active" data-preset="event">Event: Servo + Face/Eye</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WB SIMULATOR -->
+    <div class="panel" id="wb">
+      <div class="simulator">
+        <div class="sim-header">
+          <h2>🌡️ White Balance Simulator</h2>
+          <a href="16-wb.html" class="lesson-link">View Lesson 16</a>
+        </div>
+        <div class="sim-controls">
+          <div class="control-group">
+            <span class="control-label">Color Temperature (Kelvin)</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="kelvinSlider" min="1700" max="10000" value="5500" step="100">
+              <span class="slider-value" id="kelvinValue">5500K</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Tint (Green ↔ Magenta)</span>
+            <div class="slider-container">
+              <input type="range" class="slider" id="tintSlider" min="-50" max="50" value="0" step="1">
+              <span class="slider-value" id="tintValue">0</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-area">
+          <img class="preview-img" id="wbPreview" src="https://picsum.photos/seed/wb/800/600" alt="WB preview">
+          <div id="wbInfo" style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,0.7);padding:12px;border-radius:8px;font-family:monospace;font-size:12px;color:#fff;"></div>
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="tungsten">Tungsten 2700K</button>
+          <button class="preset-btn" data-preset="daylight">Daylight 5500K</button>
+          <button class="preset-btn" data-preset="cloudy">Cloudy 6500K</button>
+          <button class="preset-btn" data-preset="shade">Shade 7500K</button>
+          <button class="preset-btn active" data-preset="flash">Flash 5500K</button>
+          <button class="preset-btn" data-preset="gym">Gym 3500K</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHT SIMULATOR -->
+    <div class="panel" id="light">
+      <div class="simulator">
+        <div class="sim-header">
+          <h2>💡 Light Direction Simulator</h2>
+          <a href="17-light-direction.html" class="lesson-link">View Lesson 17</a>
+        </div>
+        <div class="sim-controls">
+          <div class="control-group" style="min-width:200px;">
+            <span class="control-label">Light Direction</span>
+            <select id="lightDirection" class="slider" style="padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);width:100%;font-size:14px;">
+              <option value="front">Front Light (Flat)</option>
+              <option value="side45" selected>Side 45° (Drama)</option>
+              <option value="side90">Side 90° (Split)</option>
+              <option value="back">Back Light (Rim)</option>
+              <option value="top">Top Light (Harsh)</option>
+              <option value="rim">Rim Light</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Fill Light</span>
+            <input type="range" class="slider" id="fillLight" min="0" max="100" value="0" step="10">
+            <span class="slider-value" id="fillValue">0%</span>
+          </div>
+        </div>
+        <div class="preview-area">
+          <img class="preview-img" id="lightPreview" src="https://picsum.photos/seed/light/800/600" alt="Light preview">
+          <div id="lightInfo" style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,0.7);padding:12px;border-radius:8px;font-family:monospace;font-size:12px;color:#fff;"></div>
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="golden">Golden Hour (Side)</button>
+          <button class="preset-btn active" data-preset="studio">Studio (Side 45°)</button>
+          <button class="preset-btn" data-preset="backlit">Backlit (Rim)</button>
+          <button class="preset-btn" data-preset="dramatic">Split Light (90°)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== TABS =====
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ===== PRESET BUTTONS =====
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.preset-buttons').querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // ===== APERTURE SIMULATOR =====
+    const apertureValues = ['f/1.4','f/1.8','f/2','f/2.8','f/4','f/5.6','f/8','f/11','f/16','f/22'];
+    const distanceValues = ['0.5m','1m','2m','3m','5m','10m'];
+    const focalValues = ['24mm','35mm','50mm','85mm','135mm','200mm'];
+    const aperturePresets = {
+      portrait: {aperture:1, distance:2, focal:2},
+      group: {aperture:3, distance:3, focal:1},
+      landscape: {aperture:7, distance:5, focal:0},
+      macro: {aperture:8, distance:0, focal:1}
+    };
+
+    function updateAperture() {
+      const a = apertureValues[document.getElementById('apertureSlider').value];
+      const d = distanceValues[document.getElementById('apertureDistance').value];
+      const f = focalValues[document.getElementById('apertureFocal').value];
+      document.getElementById('apertureValue').textContent = a;
+      document.getElementById('distanceValue').textContent = d;
+      document.getElementById('focalValue').textContent = f;
+      document.getElementById('apertureDOF').innerHTML = 
+        `Aperture: ${a}  |  Distance: ${d}  |  Focal: ${f}<br>` +
+        `DOF: ${a.startsWith('f/1') || a.startsWith('f/2') ? 'Shallow (blurry bg)' : a.startsWith('f/8') || a.startsWith('f/1') ? 'Deep (sharp throughout)' : 'Moderate'}  |  ` +
+        `Blur: ${parseInt(document.getElementById('apertureSlider').value) < 3 ? 'Heavy' : parseInt(document.getElementById('apertureSlider').value) < 6 ? 'Moderate' : 'Minimal'}`;
+    }
+    ['apertureSlider','apertureDistance','apertureFocal'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateAperture);
+    });
+    document.querySelectorAll('#aperture .preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = aperturePresets[btn.dataset.preset];
+        document.getElementById('apertureSlider').value = p.aperture;
+        document.getElementById('apertureDistance').value = p.distance;
+        document.getElementById('apertureFocal').value = p.focal;
+        updateAperture();
+      });
+    });
+    updateAperture();
+
+    // ===== SHUTTER SIMULATOR =====
+    const shutterValues = ['1/4000','1/2000','1/1000','1/500','1/250','1/125','1/60','1/30','1/15','1/8','1/4','1/2','1"'];
+    const speedLabels = ['Hummingbird','Sprint','Jump','Fast run','Run','Walk','Slow walk','Slow','Creative','Panning','Long','Bulb','Bulb'];
+    const subjectSpeeds = ['Still','Walking','Running','Sprinting','Race car'];
+    const focalValues2 = ['24mm','35mm','50mm','85mm','135mm','200mm'];
+
+    function updateShutter() {
+      const s = shutterValues[document.getElementById('shutterSlider').value];
+      const sp = subjectSpeeds[document.getElementById('subjectSpeed').value];
+      const f = focalValues2[document.getElementById('shutterFocal').value];
+      document.getElementById('shutterValue').textContent = s;
+      document.getElementById('speedValue').textContent = sp;
+      document.getElementById('sfocalValue').textContent = f;
+      
+      const shutterIdx = document.getElementById('shutterSlider').value;
+      const speedIdx = document.getElementById('subjectSpeed').value;
+      let blur = 'Frozen';
+      if (shutterIdx >= 6 && speedIdx >= 2) blur = 'Motion blur';
+      else if (shutterIdx >= 8 && speedIdx >= 1) blur = 'Creative blur';
+      else if (shutterIdx >= 10) blur = 'Heavy blur / light trails';
+      
+      document.getElementById('shutterBlur').innerHTML = 
+        `Shutter: ${s}  |  Subject: ${sp}  |  Focal: ${f}<br>` +
+        `Result: ${blur}  |  ` +
+        `Reciprocal rule: ${s} ${parseInt(s.split('/')[1] || 1) >= 1/parseInt(f) ? '✓ Safe' : '⚠ Risk of shake'}`;
+    }
+    ['shutterSlider','subjectSpeed','shutterFocal'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateShutter);
+    });
+    const shutterPresets = {
+      freeze: {shutter:3, speed:2, focal:2},
+      normal: {shutter:6, speed:1, focal:2},
+      blur: {shutter:8, speed:2, focal:2},
+      pan: {shutter:7, speed:2, focal:2}
+    };
+    document.querySelectorAll('#shutter .preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = shutterPresets[btn.dataset.preset];
+        document.getElementById('shutterSlider').value = p.shutter;
+        document.getElementById('subjectSpeed').value = p.speed;
+        document.getElementById('shutterFocal').value = p.focal;
+        updateShutter();
+      });
+    });
+    updateShutter();
+
+    // ===== ISO SIMULATOR =====
+    const isoValues = ['50','100','200','400','800','1600','3200','6400','12800','25600','51200'];
+    const lightLabels = ['Bright sun','Outdoor','Indoor','Dim','Dark'];
+    function updateISO() {
+      const iso = isoValues[document.getElementById('isoSlider').value];
+      const light = lightLabels[document.getElementById('lightLevel').value];
+      document.getElementById('isoValue').textContent = 'ISO ' + iso;
+      document.getElementById('lightValue').textContent = light;
+      const isoNum = parseInt(iso);
+      let quality = isoNum <= 400 ? 'Pristine' : isoNum <= 3200 ? 'Excellent' : isoNum <= 6400 ? 'Good (NR)' : isoNum <= 12800 ? 'Grainy' : 'Heavy grain';
+      document.getElementById('isoNoise').innerHTML = 
+        `ISO: ${iso}  |  Light: ${light}<br>` +
+        `Quality: ${quality}  |  ` +
+        `DR: ${isoNum <= 400 ? 'Max' : isoNum <= 3200 ? 'High' : isoNum <= 6400 ? 'Good' : 'Reduced'}  |  ` +
+        `Color: ${isoNum <= 1600 ? 'Accurate' : isoNum <= 6400 ? 'Slight shift' : 'Shifted'}`;
+    }
+    ['isoSlider','lightLevel'].forEach(id => document.getElementById(id).addEventListener('input', updateISO));
+    const isoPresets = {sunny:0, indoor:3, gym:6, night:7};
+    document.querySelectorAll('#iso .preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('isoSlider').value = isoPresets[btn.dataset.preset];
+        updateISO();
+      });
+    });
+    updateISO();
+
+    // ===== FOCUS SIMULATOR =====
+    function updateFocus() {
+      const mode = document.getElementById('focusMode').value;
+      const area = document.getElementById('focusArea').value;
+      const subject = document.getElementById('subjectType').value;
+      document.getElementById('focusRecommendation').innerHTML = 
+        `Mode: ${mode}  |  Area: ${area}  |  Subject: ${subject}<br>` +
+        `Recommendation: ${getFocusRecommendation(mode, area, subject)}`;
+    }
+    function getFocusRecommendation(mode, area, subject) {
+      if (subject === 'portrait' && mode === 'oneshot' && area === '1point') return '✓ Perfect for posed portraits';
+      if (subject === 'action' && mode === 'servo' && (area === 'zone' || area === 'faceeye')) return '✓ Best for moving subjects';
+      if (subject === 'group' && area === 'zone') return '✓ Zone covers multiple faces';
+      if (subject === 'chaos' && mode === 'servo' && area === 'faceeye') return '✓ Safest for unpredictable events';
+      return 'Consider adjusting for subject type';
+    }
+    ['focusMode','focusArea','subjectType'].forEach(id => document.getElementById(id).addEventListener('change', updateFocus));
+    const focusPresets = {
+      portrait: {mode:'oneshot', area:'1point', subject:'portrait'},
+      sports: {mode:'servo', area:'zone', subject:'action'},
+      event: {mode:'servo', area:'faceeye', subject:'chaos'}
+    };
+    document.querySelectorAll('#focus .preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = focusPresets[btn.dataset.preset];
+        document.getElementById('focusMode').value = p.mode;
+        document.getElementById('focusArea').value = p.area;
+        document.getElementById('subjectType').value = p.subject;
+        updateFocus();
+      });
+    });
+    updateFocus();
+
+    // ===== WB SIMULATOR =====
+    function updateWB() {
+      const k = document.getElementById('kelvinSlider').value;
+      const t = document.getElementById('tintSlider').value;
+      document.getElementById('kelvinValue').textContent = k + 'K';
+      document.getElementById('tintValue').textContent = t > 0 ? '+' + t : t;
+      let mood = '';
+      if (k < 3000) mood = 'Very warm / candle';
+      else if (k < 4000) mood = 'Warm / tungsten';
+      else if (k < 5000) mood = 'Neutral / daylight';
+      else if (k < 6500) mood = 'Cool / cloudy';
+      else if (k < 8000) mood = 'Cool / shade';
+      else mood = 'Very cool / blue sky';
+      document.getElementById('wbInfo').innerHTML = 
+        `Kelvin: ${k}K  |  Tint: ${t > 0 ? '+' : ''}${t}<br>` +
+        `Mood: ${mood}  |  ` +
+        `Tint: ${t > 0 ? 'Magenta shift' : t < 0 ? 'Green shift' : 'Neutral'}`;
+    }
+    ['kelvinSlider','tintSlider'].forEach(id => document.getElementById(id).addEventListener('input', updateWB));
+    const wbPresets = {
+      tungsten:2700, daylight:5500, cloudy:6500, shade:7500, flash:5500, gym:3500
+    };
+    document.querySelectorAll('#wb .preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('kelvinSlider').value = wbPresets[btn.dataset.preset];
+        updateWB();
+      });
+    });
+    updateWB();
+
+    // ===== LIGHT SIMULATOR =====
+    function updateLight() {
+      const dir = document.getElementById('lightDirection').value;
+      const fill = document.getElementById('fillLight').value;
+      document.getElementById('fillValue').textContent = fill + '%';
+      const dirNames = {
+        front: 'Front Light — Flat, even, minimal shadows',
+        side45: 'Side 45° — The sweet spot: depth + dimension',
+        side90: 'Side 90° — Split lighting, dramatic',
+        back: 'Back Light — Rim light, silhouette potential',
+        top: 'Top Light — Raccoon eyes, avoid for portraits',
+        rim: 'Rim Light — Separation from background'
+      };
+      document.getElementById('lightInfo').innerHTML = 
+        `Direction: ${dir}  |  Fill: ${fill}%<br>${dirNames[dir]}`;
+    }
+    ['lightDirection','fillLight'].forEach(id => document.getElementById(id).addEventListener('input', updateLight));
+    const lightPresets = {
+      golden: 'side45', studio: 'side45', backlit: 'back', dramatic: 'side90'
+    };
+    document.querySelectorAll('#light .preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('lightDirection').value = lightPresets[btn.dataset.preset];
+        updateLight();
+      });
+    });
+    updateLight();
+
+  </script>
+</body>
+</html>

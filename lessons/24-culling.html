@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 24: The Live Edit — Cull, Rate, Deliver — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p6{background:linear-gradient(135deg,#ef4444,#dc2626)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .workflow{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0}
+    .workflow h3{margin-bottom:12px}
+    .step{display:flex;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .step:last-child{border-bottom:none;margin-bottom:0}
+    .step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#000;flex-shrink:0}
+    .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0}
+    .tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+    .tool-card h3{margin-bottom:8px;color:var(--primary)}
+    .tool-card ul{text-align:left;margin-left:0;padding-left:0;list-style:none}
+    .tool-card li{padding:4px 0;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p6">Lesson 24</span>
+    <h1>The Live Edit — Cull, Rate, Deliver</h1>
+    <div class="meta">
+      <span>Phase 6: Event Photographer Mode</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>250 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Turn 1000 shots into 50 heroes in record time. In-camera culling, batch editing, and delivery workflow that clients love.</p>
+    </section>
+
+    <div class="workflow">
+      <h3>📋 The 5-Stage Culling Workflow</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><strong>In-Camera (During Event):</strong> Rate 1-5 stars. 5=hero, 4=strong, 3=maybe, 2=backup, 1=delete. Do between shoots.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><strong>Import + Auto-Cull:</strong> Lightroom/DPP → Import 5★ + 4★ only. Flag 3★ for review. Reject 1-2★.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><strong>Rapid Cull (Additive Method):</strong> Grid view → P (pick) / X (reject). 3-5 seconds per image. Goal: 500 → 50.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div><strong>Batch Edit:</strong> Sync settings across similar lighting. Exposure, WB, contrast, noise reduction. Preset per scene.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div><strong>Export & Deliver:</strong> Web JPGs (2000px long edge, sRGB, 85% quality) + Full-res archive. Gallery link.</div>
+      </div>
+    </div>
+
+    <section>
+      <h2>In-Camera Rating System (R7)</h2>
+      <ul>
+        <li><strong>★★★★★ (5):</strong> Portfolio hero, immediate hero</li>
+        <li><strong>★★★★ (4):</strong> Strong contender, needs minor edit</li>
+        <li><strong>★★★ (3):</strong> Maybe — review later</li>
+        <li><strong>★★ (2):</strong> Backup / group shot alternative</li>
+        <li><strong>★ (1):</strong> Delete (blink, blur, duplicate, bad)</li>
+      </ul>
+      <p><strong>Pro tip:</strong> Rate during downtime (speeches, dinner). Don't chimp every shot.</p>
+    </section>
+
+    <section>
+      <h2>The Culling Mindset</h2>
+      <ul>
+        <li><strong>Be ruthless:</strong> If you hesitate, it's not a 5</li>
+        <li><strong>First instinct:</strong> Your gut knows in 2 seconds</li>
+        <li><strong>Compare similar:</strong> Keep best of burst, delete rest</li>
+        <li><strong>Technical first:</strong> Blink/blur → instant reject</li>
+        <li><strong>Then artistic:</strong> Expression, composition, moment</li>
+      </ul>
+    </section>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>🆓 Free</h3>
+        <ul>
+          <li>Canon DPP (free, basic stacking)</li>
+          <li>Lightroom Mobile (free tier)</li>
+          <li>Apple Photos / Google Photos</li>
+          <li>RawTherapee (RAW editor)</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <h3>💰 Pro ($10-20/mo)</h3>
+        <ul>
+          <li>Lightroom Classic + Cloud</li>
+          <li>Capture One (best color)</li>
+          <li>AfterShoot (AI culling)</li>
+          <li>Narrative Select (AI culling)</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <h3>🎯 Specialized</h3>
+        <ul>
+          <li>Photo Mechanic (fastest cull)</li>
+          <li>PhotoSweeper (duplicate finder)</li>
+          <li>Helicon Focus (stacking)</li>
+          <li>JPEGmini (compression)</li>
+        </ul>
+      </div>
+    </div>
+
+    <section>
+      <h2>Batch Editing Workflow</h2>
+      <ol>
+        <li>Group by lighting scene (outdoor, indoor, flash, sunset)</li>
+        <li>Edit ONE representative image per group</li>
+        <li>Sync settings: Select all → Sync → Check all</li>
+        <li>Fine-tune outliers individually</li>
+        <li>Export preset: 2000px, sRGB, 85% quality, sharpen standard</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Delivery That Wows</h2>
+      <ul>
+        <li><strong>Gallery:</strong> Pixieset (free tier), SmugMug, Pic-Time, ShootProof</li>
+        <li><strong>Password:</strong> Client name + event date</li>
+        <li><strong>Download:</strong> Original + Web sizes</li>
+        <li><strong>Mobile app:</strong> Client can favorite/download on phone</li>
+        <li><strong>Expire:</strong> 1 year (or forever for weddings)</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Cull 50 → 10 → 5, edit 5.</strong> Import 50 RAW files (or use sample). Cull to 10 in 5 min. Cull to 5 in 3 min. Batch edit 5 with single preset. Export web + full. Time: < 30 min total.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=0cftoV8CnAk" target="_blank" class="video-link">How I Cull & Edit Photos Faster Than Ever (AfterShoot)</a>
+      <br><br>
+      <a href="https://photographylife.com/professional-workflow-image-culling" target="_blank" class="video-link">Professional Workflow for Image Culling (Photography Life)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Culled 50 → 10 in under 5 minutes</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Culled 10 → 5 in under 3 minutes</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Batch edited 5 with single preset sync</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Exported web + full-res versions</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Uploaded to gallery with password</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="23-workflow.html" class="btn btn-secondary">← Previous</a>
+      <a href="25-capstone.html" class="btn btn-primary">Next: Portfolio & Pitch →</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 14: Focus & Recompose — The Old School Way — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--purple:#a855f7;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p3{background:linear-gradient(135deg,#a855f7,#9333ea)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .warning-box{background:rgba(239,68,68,0.1);border:1px solid var(--error);border-radius:12px;padding:16px;margin:16px 0}
+    .warning-box h3{color:var(--error);margin-bottom:8px}
+    .pro-tip{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:16px;margin:16px 0}
+    .pro-tip h3{color:var(--primary);margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p3">Lesson 14</span>
+    <h1>Focus & Recompose — The Old School Way</h1>
+    <div class="meta">
+      <span>Phase 3: Focus Like a Pro</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>150 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Master the classic technique: focus on center point, hold, recompose, shoot. Know exactly when it works and when it fails.</p>
+    </section>
+
+    <section>
+      <h2>The Technique (Step by Step)</h2>
+      <ol>
+        <li>Set AF mode to <strong>One Shot</strong></li>
+        <li>Set AF area to <strong>1-Point AF (center)</strong></li>
+        <li>Place center point on subject's eye</li>
+        <li>Half-press shutter → focus locks (beep)</li>
+        <li><strong>HOLD half-press</strong> — keep finger pressure</li>
+        <li>Recompose: move camera to desired framing</li>
+        <li>Full press shutter → shoot</li>
+      </ol>
+    </section>
+
+    <div class="warning-box">
+      <h3>⚠️ When It FAILS</h3>
+      <ul>
+        <li><strong>Wide aperture (f/1.4–f/2.8):</strong> Focus plane is razor-thin → recompose rotates plane → eye falls out of focus</li>
+        <li><strong>Close subject:</strong> Focus plane rotation = bigger shift at close distance</li>
+        <li><strong>Wide angle lens:</strong> Focus plane curvature + recompose = soft edges</li>
+        <li><strong>Close + wide + wide open:</strong> Triple failure zone</li>
+      </ul>
+    </div>
+
+    <div class="pro-tip">
+      <h3>✅ When It WORKS Great</h3>
+      <ul>
+        <li>f/4 and narrower (deeper focus plane)</li>
+        <li>Moderate distance (3m+)</li>
+        <li>Telephoto lens (flatter focus plane)</li>
+        <li>AF-S mode (locks solid)</li>
+      </ul>
+    </div>
+
+    <section>
+      <h2>Why It Works (and Why It Breaks)</h2>
+      <p>The focus plane is a flat plane perpendicular to the lens. When you focus on center and recompose, you rotate the camera. The focus plane rotates with it. Your subject is no longer on that plane.</p>
+      <p><strong>Shift amount depends on:</strong></p>
+      <ul>
+        <li>Aperture (wider = thinner plane = more shift)</li>
+        <li>Distance (closer = more shift for same angle)</li>
+        <li>Focal length (wide = more curved plane)</li>
+      </ul>
+    </div>
+
+    <section>
+      <h2>R7 Better Alternatives (Use These Instead)</h2>
+      <ol>
+        <li><strong>Eye AF + 1-Point:</strong> Place point on eye, let camera track. No recompose needed.</li>
+        <li><strong>Touch & Drag AF:</strong> Tap eye on LCD → done.</li>
+        <li><strong>Flexible Zone + Eye AF:</strong> Zone on subject area, let Eye AF find eye.</li>
+        <li><strong>Back-button AF + Servo:</strong> Hold AF-ON to track, release to lock.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>The "Emergency" Recompose (When You Have To)</h2>
+      <p>If you MUST recompose with wide aperture:</p>
+      <ul>
+        <li>Stop down to f/4+ if possible</li>
+        <li>Step back (increase distance = less shift)</li>
+        <li>Use center point (sharpest)</li>
+        <li>Minimize recompose angle (small shift = less error)</li>
+        <li>Shoot burst — one might be sharp</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>5 portraits using focus-recompose.</strong> Shoot at f/4, f/2.8, f/1.8. Check each at 100% zoom on eye. Note which apertures stay sharp. Then redo with Eye AF — compare hit rate.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=PXu6pbKetH0" target="_blank" class="video-link">Get Sharp Photos with Focus and Recompose Technique</a>
+      <br><br>
+      <a href="https://www.youtube.com/watch?v=qy3RVRFVmUE" target="_blank" class="video-link">How to Focus and Recompose with a DSLR</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain why focus/recompose fails at wide apertures</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Tested at f/4, f/2.8, f/1.8 — noted sharpness drop-off</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Used Eye AF as alternative — compared hit rate</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain flat focus plane vs recompose rotation</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="13-focus-areas.html" class="btn btn-secondary">← Previous</a>
+      <a href="15-focus-stacking.html" class="btn btn-primary">Next: Focus Stacking →</a>
+    </div>
+  </div>
+</body>
+</html>

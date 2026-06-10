@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5: Zoom With Your Feet — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p1{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .focal-demo{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .focal-demo h3{margin-bottom:12px}
+    .focal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+    .focal-item{text-align:center;padding:12px;background:var(--bg);border-radius:8px}
+    .focal-label{font-weight:700;margin-bottom:4px}
+    .focal-desc{font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p1">Lesson 5</span>
+    <h1>Zoom With Your Feet</h1>
+    <div class="meta">
+      <span>Phase 1: Hold This Thing</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>100 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Understand focal length, compression vs expansion, and why moving your feet beats zooming the lens.</p>
+    </section>
+
+    <section>
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>Focal length = field of view + magnification</li>
+        <li>Wide (24mm) = environmental, expansion</li>
+        <li>Normal (50mm) = human eye perspective</li>
+        <li>Telephoto (200mm) = compression, isolation</li>
+        <li>Crop factor on R7 (1.6x) = 24mm = 38mm equivalent</li>
+        <li>Why "zoom with feet" changes perspective, zooming doesn't</li>
+      </ul>
+    </section>
+
+    <div class="focal-demo">
+      <h3>🔭 R7 Focal Length Cheat Sheet (1.6x crop)</h3>
+      <div class="focal-grid">
+        <div class="focal-item">
+          <div class="focal-label">24mm (38mm eq)</div>
+          <div class="focal-desc">Wide environmental</div>
+        </div>
+        <div class="focal-item">
+          <div class="focal-label">35mm (56mm eq)</div>
+          <div class="focal-desc">Street/normal</div>
+        </div>
+        <div class="focal-item">
+          <div class="focal-label">50mm (80mm eq)</div>
+          <div class="focal-desc">Portraits</div>
+        </div>
+        <div class="focal-item">
+          <div class="focal-label">200mm (320mm eq)</div>
+          <div class="focal-desc">Sports/action</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>The "Zoom With Feet" Rule</h2>
+      <p><strong>Zooming</strong> = crops the image, same perspective</p>
+      <p><strong>Moving</strong> = changes perspective, relationship between subject and background</p>
+      <p>Get closer with wide = subject big, background environmental</p>
+      <p>Step back with telephoto = subject same size, background compressed</p>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Same subject at 24mm, 50mm, 105mm, 200mm.</strong> Move your feet to keep subject same size in frame. Compare: background relationship, subject distortion, compression. Upload all 4.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=45Aob0op6RA" target="_blank" class="video-link">Focal Length Explained (Photo Genius)</a>
+      <br><br>
+      <a href="https://www.youtube.com/watch?v=xFjgQ9jutbE" target="_blank" class="video-link">Lens Focal Length in 60 Seconds (Photo Genius)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot same subject at all 4 focal lengths</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Subject roughly same size in all frames</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain compression vs expansion difference</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Identified which focal length feels most natural</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="04-viewfinder.html" class="btn btn-secondary">← Previous</a>
+      <a href="06-aperture.html" class="btn btn-primary">Next: Aperture →</a>
+    </div>
+  </div>
+</body>
+</html>

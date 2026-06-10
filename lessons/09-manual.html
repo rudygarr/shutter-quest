@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 9: Manual Mode — The Big Leagues — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p2{background:linear-gradient(135deg,#f97316,#ea580c)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .triangle{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0;text-align:center}
+    .triangle h3{margin-bottom:16px}
+    .triangle-svg{width:280px;height:280px;margin:0 auto 16px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p2">Lesson 9</span>
+    <h1>Manual Mode — The Big Leagues</h1>
+    <div class="meta">
+      <span>Phase 2: Exposure Triangle</span>
+      <span>👑 CEO (Nemotron 3 Ultra)</span>
+      <span>200 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Full manual control. You balance all three exposure variables. The meter is your guide, not your boss.</p>
+    </section>
+
+    <div class="triangle">
+      <h3>🎯 The Exposure Triangle</h3>
+      <svg class="triangle-svg" viewBox="0 0 300 260">
+        <polygon points="150,20 280,230 20,230" fill="none" stroke="var(--primary)" stroke-width="3" stroke-dasharray="8,4"/>
+        <text x="150" y="45" text-anchor="middle" fill="var(--primary)" font-weight="bold" font-size="16">APERTURE</text>
+        <text x="40" y="200" text-anchor="middle" fill="var(--orange)" font-weight="bold" font-size="16">SHUTTER</text>
+        <text x="260" y="200" text-anchor="middle" fill="var(--blue)" font-weight="bold" font-size="16">ISO</text>
+        <text x="150" y="130" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">EXPOSURE</text>
+        <circle cx="150" cy="130" r="35" fill="none" stroke="var(--border)" stroke-width="2"/>
+        <text x="150" y="135" text-anchor="middle" fill="var(--muted)" font-size="11">Meter at 0</text>
+      </svg>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px;">Change one → adjust another to keep meter at 0</p>
+    </div>
+
+    <section>
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>Mode dial to M — you own all three variables</li>
+        <li>Light meter: 0 = "correct" exposure, + = brighter, - = darker</li>
+        <li>Sunny 16 rule: sunny day = f/16, 1/ISO shutter</li>
+        <li>Workflow: set aperture for look → set shutter for motion → adjust ISO for meter</li>
+        <li>Exposure compensation in Manual = shifts meter target</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Manual Workflow (Every Shot)</h2>
+      <ol>
+        <li><strong>Aperture first:</strong> What depth of field do I want? (f/1.8 portrait, f/11 landscape)</li>
+        <li><strong>Shutter second:</strong> What motion look? (1/500 freeze, 1/30 blur, 1/125 safe)</li>
+        <li><strong>ISO third:</strong> Adjust until meter hits 0</li>
+        <li><strong>Review:</strong> Check histogram, highlight alert, adjust</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Sunny 16 — Your Mental Cheat Code</h2>
+      <p><strong>Sunny day:</strong> f/16, shutter = 1/ISO (ISO 100 = 1/100s)</p>
+      <p><strong>Slight overcast:</strong> f/11</p>
+      <p><strong>Overcast:</strong> f/8</p>
+      <p><strong>Heavy overcast/open shade:</strong> f/5.6</p>
+      <p><strong>Sunset:</strong> f/4</p>
+    </section>
+
+    <section>
+      <h2>When Meter Lies</h2>
+      <ul>
+        <li><strong>Snow/sand:</strong> Meter sees bright → underexposes → +1 to +2 EV</li>
+        <li><strong>Black cat/coal:</strong> Meter sees dark → overexposes → -1 to -2 EV</li>
+        <li><strong>Backlit subject:</strong> Meter reads background → subject dark → +1 to +2 EV</li>
+        <li><strong>Spot meter:</strong> Meter off subject's face, lock, recompose</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>5 manual shots in different light.</strong> Sunny, shade, backlit, indoor, mixed. Use Sunny 16 as starting point. Adjust from there. No Auto modes allowed.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=_tyYwbnhVCU" target="_blank" class="video-link">Exposure Triangle Made Easy - Manual Mode in 10 Minutes</a>
+      <br><br>
+      <a href="https://www.seantucker.photography/blog/2016/1/26/take-control-and-shoot-manual-mode" target="_blank" class="video-link">Take Control and Shoot in Manual Mode (Sean Tucker)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can set M mode and balance all 3 variables</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Used Sunny 16 as starting point in daylight</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Corrected for snow/backlight/dark subject</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> 5 manual shots in varying light conditions</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain workflow: Aperture → Shutter → ISO</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="08-iso.html" class="btn btn-secondary">← Previous</a>
+      <a href="10-ec.html" class="btn btn-primary">Next: Exposure Compensation →</a>
+    </div>
+  </div>
+</body>
+</html>

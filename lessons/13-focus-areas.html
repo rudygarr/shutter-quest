@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 13: Focus Areas — Point, Zone, Wide, Face/Eye — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--purple:#a855f7;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p3{background:linear-gradient(135deg,#a855f7,#9333ea)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .area-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:16px 0}
+    .area-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+    .area-card h3{margin-bottom:8px;color:var(--primary)}
+    .area-card .icon{font-size:28px;margin-bottom:8px}
+    .area-card ul{text-align:left;margin-left:0;padding-left:0;list-style:none}
+    .area-card li{padding:4px 0;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p3">Lesson 13</span>
+    <h1>Focus Areas — Point, Zone, Wide, Face/Eye</h1>
+    <div class="meta">
+      <span>Phase 3: Focus Like a Pro</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>150 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Select the right AF area for your subject. Point for precision, Zone for groups, Wide for chaos, Face/Eye for people/animals.</p>
+    </section>
+
+    <div class="area-grid">
+      <div class="area-card">
+        <div class="icon">🎯</div>
+        <h3>1-Point AF</h3>
+        <ul>
+          <li>Single focus point</li>
+          <li>You place it exactly</li>
+          <li>Maximum precision</li>
+          <li>Focus → recompose works</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Portraits (eye), macro, still life, precise control</p>
+      </div>
+      <div class="area-card">
+        <div class="icon">🎯+</div>
+        <h3>Expand AF Area</h3>
+        <ul>
+          <li>1-point + 4/8 neighbors</li>
+          <li>Helps if subject moves slightly</li>
+          <li>Still precise-ish</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Portraits with slight movement, confident but safe</p>
+      </div>
+      <div class="area-card">
+        <div class="icon">⬜</div>
+        <h3>Zone AF</h3>
+        <ul>
+          <li>Named zones (9, 15, etc.)</li>
+          <li>Camera picks within zone</li>
+          <li>Flexible Zone = resize/move zone</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Groups, action with predictable path, sports</p>
+      </div>
+      <div class="area-card">
+        <div class="icon">⬛</div>
+        <h3>Wide Area AF</h3>
+        <ul>
+          <li>Full frame coverage (100% x 100%)</li>
+          <li>Camera picks ANYWHERE</li>
+          <li>Subject detection takes over</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Chaos, unpredictable action, "I don't know where they'll be"</p>
+      </div>
+      <div class="area-card">
+        <div class="icon">👁️</div>
+        <h3>Face/Eye Detection AF</h3>
+        <ul>
+          <li>Detects faces → prioritizes eyes</li>
+          <li>Human + Animal (dog/cat/bird) + Vehicle</li>
+          <li>Works in ALL focus modes</li>
+          <li>Eye priority: Nearest eye / Left / Right</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Portraits, events, pets, wildlife, weddings — ALWAYS ON for people</p>
+      </div>
+      <div class="area-card">
+        <div class="icon">🔄</div>
+        <h3>Flexible Zone AF (R7)</h3>
+        <ul>
+          <li>Resize zone: 3x3, 5x5, 7x7, etc.</li>
+          <li>Position zone anywhere in frame</li>
+          <li>Combine with Servo for tracking</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Sports (zone on goal), dance (zone on stage), custom coverage</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>R7 Specific: AF Area + Mode Combos</h2>
+      <div class="area-grid">
+        <div class="area-card">
+          <h3>One Shot + 1-Point</h3>
+          <p>Static precision. Portrait, macro, landscape.</p>
+        </div>
+        <div class="area-card">
+          <h3>AI Servo + Eye AF</h3>
+          <p>Moving people/animals. Best for events, sports, pets.</p>
+        </div>
+        <div class="area-card">
+          <h3>AI Servo + Zone</h3>
+          <p>Predictable action. Sports, dance, known path.</p>
+        </div>
+        <div class="area-card">
+          <h3>AI Servo + Wide</h3>
+          <p>Chaos mode. Unpredictable, crowds, wildlife.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>R7 Flexible Zone AF — Custom Shapes</h2>
+      <p>Menu → AF → AF area → Flexible Zone → Choose size (3x3 to 15x15) → Position with joystick. Save as custom C1/C2/C3 modes.</p>
+      <p><strong>Pro setups:</strong></p>
+      <ul>
+        <li><strong>Basketball:</strong> 15x15 zone at hoop height</li>
+        <li><strong>Soccer:</strong> 9x9 zone at goal line</li>
+        <li><strong>Dance:</strong> 7x7 zone center stage</li>
+        <li><strong>Church aisle:</strong> 5x15 vertical zone</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Focus + Recompose — When It Works & Fails</h2>
+      <ul>
+        <li><strong>Works:</strong> f/4+, moderate distance, One Shot, center point sharpest</li>
+        <li><strong>Fails:</strong> f/1.4, close subject, wide angle, AF-S with Servo</li>
+        <li><strong>Why:</strong> Focus plane is flat; recompose rotates plane → subject falls out of focus</li>
+        <li><strong>R7 fix:</strong> Use Eye AF + Touch & Drag AF instead of recompose</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Portrait (Eye AF), group (Zone), action (Wide), chaos (Wide + Servo).</strong> Shoot: (1) Portrait with Eye AF + 1-Point, (2) Group of 4 with Zone, (3) Running kid with Servo + Zone, (4) Chaotic playground with Wide + Servo.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.canon-europe.com/pro/infobank/autofocus/" target="_blank" class="video-link">Canon Europe: All About Autofocus</a>
+      <br><br>
+      <a href="https://community.usa.canon.com/t5/EOS-DSLR-Mirrorless-Cameras/Autofocus-area-recommendations-for-action-photos-on-the-EOS-R7/td-p/498903" target="_blank" class="video-link">R7 AF Area Recommendations (Canon Community)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can name all 6 AF areas and when to use each</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot portrait with Eye AF + 1-Point</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot group with Zone AF</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot action with Servo + Zone</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Tested Wide + Servo on chaotic scene</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Understands when focus/recompose fails</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="12-focus-modes.html" class="btn btn-secondary">← Previous</a>
+      <a href="14-recompose.html" class="btn btn-primary">Next: Focus & Recompose →</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 15: Focus Stacking & Manual Focus Peaking — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--purple:#a855f7;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p3{background:linear-gradient(135deg,#a855f7,#9333ea)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .workflow{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0}
+    .workflow h3{margin-bottom:12px}
+    .step{display:flex;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    .step:last-child{border-bottom:none;margin-bottom:0}
+    .step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#000;flex-shrink:0}
+    .peaking{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .peaking h3{margin-bottom:12px;color:var(--primary)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p3">Lesson 15</span>
+    <h1>Focus Stacking & Manual Focus Peaking</h1>
+    <div class="meta">
+      <span>Phase 3: Focus Like a Pro</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>200 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Master focus stacking for infinite depth of field in macro, and use focus peaking for razor-sharp manual focus.</p>
+    </section>
+
+    <section>
+      <h2>What Is Focus Stacking?</h2>
+      <p>Take multiple photos at different focus distances → combine in software → single image with infinite depth of field. Essential for macro, product, landscape foreground-to-background.</p>
+    </section>
+
+    <div class="workflow">
+      <h3>📋 Focus Stacking Workflow (R7)</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <strong>Setup:</strong> Tripod mandatory. Manual focus. Manual exposure (same settings all shots). Remote shutter or 2-sec timer.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <strong>Focus Bracketing:</strong> Menu → Focus Bracketing → Enable. Set: Number of shots (10-50), Focus increment (1-10), Auto exposure bracketing OFF.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <strong>Set Start Point:</strong> Focus on nearest point you want sharp. Press shutter → camera shoots stack automatically.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <strong>Stack in Software:</strong> Canon DPP (free), Photoshop (File → Automate → Photomerge), Helicon Focus, Zerene Stacker.
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>R7 Focus Bracketing Settings</h2>
+      <ul>
+        <li><strong>Number of shots:</strong> 10-20 (macro), 5-10 (landscape)</li>
+        <li><strong>Focus increment:</strong> 1-3 (small steps = smoother), 5-10 (faster, risk gaps)</li>
+        <li><strong>Auto exposure bracketing:</strong> OFF (keep exposure constant)</li>
+        <li><strong>Flash:</strong> OFF (or consistent power if using)</li>
+      </ul>
+    </section>
+
+    <div class="peaking">
+      <h3>🎯 Focus Peaking — Your MF Best Friend</h3>
+      <p>Turn on: Menu → MF Peaking Settings → Peaking: ON • Color: Red/Yellow/Blue/White • Level: High/Medium/Low</p>
+      <ul>
+        <li><strong>What it does:</strong> Highlights in-focus edges with colored lines</li>
+        <li><strong>Colors:</strong> Red (contrasty scenes), Yellow (general), Blue (low light), White (high contrast)</li>
+        <li><strong>Level:</strong> High = more sensitive, Low = only sharpest edges</li>
+        <li><strong>R7 bonus:</strong> Works in video mode too!</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Manual Focus with Peaking Workflow</h2>
+      <ol>
+        <li>Switch lens to MF (or body MF)</li>
+        <li>Turn on Peaking (Red, High)</li>
+        <li>Magnify: 5x or 10x (INFO button or touch 2x)</li>
+        <li>Turn focus ring until peaking highlights appear on target</li>
+        <li>Fine-tune: rock focus ring slightly back/forth to find peak</li>
+        <li>Shoot</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Stacking Software Comparison</h2>
+      <ul>
+        <li><strong>Canon DPP (Free):</strong> Built-in, basic, OK for simple stacks</li>
+        <li><strong>Photoshop:</strong> File → Automate → Photomerge → Collage, Auto blend layers</li>
+        <li><strong>Helicon Focus:</strong> Best algorithms, depth map output, batch (paid)</li>
+        <li><strong>Zerene Stacker:</strong> Best for macro, PMax/DMap methods (paid)</li>
+        <li><strong>CombineZP:</strong> Free, older, learning curve</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Focus stacked macro + MF peaking demo.</strong> Shoot: (1) 15-shot macro stack of flower/insect (tripod, focus bracketing), (2) MF peaking: manual focus on 3 subjects at different distances using peaking. Compare stacked vs single shot.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=2hpyzmi6MbU" target="_blank" class="video-link">Focus Stacking in Macro Photography – Beginner Tutorial</a>
+      <br><br>
+      <a href="https://www.youtube.com/watch?v=C7ynluv3zAc" target="_blank" class="video-link">Focus Stacking and Focus Peaking for Macro (OM1 demo)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Successfully ran focus bracketing on R7 (10+ shots)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Stacked images in DPP/Photoshop → single sharp image</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Used MF peaking (Red, High, 10x) for manual focus</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain when to use stacking vs single shot</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="14-recompose.html" class="btn btn-secondary">← Previous</a>
+      <a href="16-wb.html" class="btn btn-primary">Next: White Balance →</a>
+    </div>
+  </div>
+</body>
+</html>

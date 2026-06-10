@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 18: Flash — The Pocket Sun — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f59e0b;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p4{background:linear-gradient(135deg,#f59e0b,#d97706)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .flash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:16px 0}
+    .flash-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+    .flash-card h3{margin-bottom:8px;color:var(--primary)}
+    .flash-card .icon{font-size:28px;margin-bottom:8px}
+    .flash-card ul{text-align:left;margin-left:0;padding-left:0;list-style:none}
+    .flash-card li{padding:4px 0;font-size:13px}
+    .technique{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0}
+    .technique h3{margin-bottom:12px}
+    .step{display:flex;gap:12px;margin-bottom:12px}
+    .step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#000;flex-shrink:0}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p4">Lesson 18</span>
+    <h1>Flash — The Pocket Sun</h1>
+    <div class="meta">
+      <span>Phase 4: Color & Light</span>
+      <span>✍️ Creative (MiniMax/Qwen)</span>
+      <span>150 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Master on-camera flash: fill flash for harsh sun, bounce flash for soft light, and when NOT to use flash.</    </section>
+
+    <section>
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>Fill flash: balance harsh shadows in bright sun</li>
+        <li>Bounce flash: ceiling/wall = soft, directional light</li>
+        <li>TTL vs Manual: let camera decide vs you control power</li>
+        <li>Flash exposure compensation (FEC): +/- on flash power</li>
+        <li>High-speed sync (HSS): flash at 1/8000s for wide-open apertures in sun</li>
+        <li>Diffusers/bounce cards: soften the punch</li>
+      </ul>
+    </section>
+
+    <div class="flash-grid">
+      <div class="flash-card">
+        <div class="icon">⚡</div>
+        <h3>Fill Flash</h3>
+        <ul>
+          <li>Bright sun → harsh shadows</li>
+          <li>Flash lifts shadows</li>
+          <li>TTL auto-balances</li>
+          <li>FEC: -1 to -2 for subtle</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Outdoor portraits, harsh noon, backlit subjects</p>
+      </div>
+      <div class="flash-card">
+        <div class="icon">🏠</div>
+        <h3>Bounce Flash</h3>
+        <ul>
+          <li>Point at ceiling/wall</li>
+          <li>Large soft source</li>
+          <li>Natural direction</li>
+          <li>Ceiling = 8-10ft ideal</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Indoor events, receptions, low ceilings</p>
+      </div>
+      <div class="flash-card">
+        <div class="icon">⚡</div>
+        <h3>High-Speed Sync</h3>
+        <ul>
+          <li>Flash at 1/8000s</li>
+          <li>f/1.8 in bright sun</li>
+          <li>Less power (pulsed)</li>
+          <li>HSS icon on flash</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Use for:</strong> Wide-open portraits in sun, shallow DOF + flash</p>
+      </div>
+      <div class="flash-card">
+        <div class="icon">🚫</div>
+        <h3>When NOT to Flash</h3>
+        <ul>
+          <li>Beyond range (built-in ~12ft)</li>
+          <li>Ambient is beautiful already</li>
+          <li>Flash would ruin mood</li>
+          <li>Museums/no-flash zones</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;"><strong>Rule:</strong> If it looks good without, don't add flash</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>Fill Flash — The Most Useful Technique</h2>
+      <ul>
+        <li>Mode: Av or P, Flash: ETTL (TTL)</li>
+        <li>Flash Exp Comp (FEC): -1 to -2 stops for subtle fill</li>
+        <li>Subject in sun, shadows on face → add fill</li>
+        <li>Dial FEC down until shadows lift but don't disappear</li>
+      </ul>
+    </section>
+
+    <div class="technique">
+      <h3>🎯 Bounce Flash Technique</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>Point flash head UP (90°) at white ceiling</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>If ceiling high/dark: bounce off side wall</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>Add bounce card (pull out white card) for catchlights</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>Flash power: TTL auto, or Manual 1/4-1/16 power</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>High-Speed Sync (HSS) — f/1.8 in Bright Sun</h2>
+      <ul>
+        <li>Normal sync: 1/250s max (R7: 1/250s)</li>
+        <li>HSS: pulses flash at 1/8000s (less power)</li>
+        <li>Enable on flash: HSS button (lightning + H)</li>
+        <li>Trade-off: less power = closer range or higher ISO</li>
+        <li>Use: f/1.8 portraits at noon with fill flash</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Fill flash, bounce flash, no-flash comparison.</strong> Same subject, same sun: (1) No flash, (2) Fill flash -1 FEC, (3) Bounce off ceiling, (4) HSS at f/1.8. Compare: shadow lift, natural look, catchlights.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=p8PGSRwtUVw" target="_blank" class="video_link">On Camera Flash For Beginners (Martin Castein)</a>
+      <br><br>
+      <a href="https://neilvn.com/tangents/flash-photography-techniques/bouncing-flash/" target="_blank" class="video_link">How to Bounce Your Flash (Neil van Niekerk)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Fill flash at -1 FEC in bright sun</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Bounce flash off ceiling (portrait)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> HSS at f/1.8 in bright sun</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain when NOT to use flash</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Knows FEC vs Manual flash power</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="17-light-direction.html" class="btn btn-secondary">← Previous</a>
+      <a href="19-rule-of-thirds.html" class="btn btn-primary">Next: Rule of Thirds →</a>
+    </div>
+  </div>
+</body>
+</html>

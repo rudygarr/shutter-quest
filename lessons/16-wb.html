@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 16: White Balance — Stop the Orange People — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;--orange:#f97316;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p4{background:linear-gradient(135deg,#f59e0b,#d97706)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .kelvin-ruler{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .kelvin-ruler h3{margin-bottom:12px}
+    .kelvin-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .kelvin-item{flex:1;min-width:90px;text-align:center;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
+    .kelvin-value{font-weight:700;font-size:13px}
+    .kelvin-desc{font-size:10px;color:var(--muted)}
+    .wb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+    .wb-preset{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+    .wb-preset .icon{font-size:28px;margin-bottom:8px}
+    .wb-preset h3{margin-bottom:4px;font-size:14px}
+    .wb-preset p{font-size:11px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p4">Lesson 16</span>
+    <h1>White Balance — Stop the Orange People</h1>
+    <div class="meta">
+      <span>Phase 4: Color & Light</span>
+      <span>🤖 Together Fast (Llama 3.2 8B)</span>
+      <span>100 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Master WB presets, Custom Kelvin, and gray card WB. Never shoot orange people in gym lighting again.</p>
+    </section>
+
+    <section>
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>AWB = camera guesses (often wrong in mixed light)</li>
+        <li>Presets: Daylight, Shade, Cloudy, Tungsten, Fluorescent, Flash</li>
+        <li>Custom Kelvin = you dial exact color temperature</li>
+        <li>Custom WB (gray card) = perfect for that exact light</li>
+        <li>WB Shift/BKT = fine-tune green/magenta bias</li>
+        <li>RAW = fix later, but get it close in-camera for JPG/video</li>
+      </ul>
+    </section>
+
+    <div class="kelvin-ruler">
+      <h3>🌡️ Kelvin Scale — The Color Temp Cheat Sheet</h3>
+      <div class="kelvin-row">
+        <div class="kelvin-item"><div class="kelvin-value">1700K</div><div class="kelvin-desc">Match flame</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">2000K</div><div class="kelvin-desc">Candle</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">2700K</div><div class="kelvin-desc">Tungsten bulb</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">3000K</div><div class="kelvin-desc">Warm LED</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">3500K</div><div class="kelvin-desc">Warm fluorescent</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">4000K</div><div class="kelvin-desc">Cool white</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">5000K</div><div class="kelvin-desc">Day white</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">5500K</div><div class="kelvin-desc">Flash / Sun</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">6500K</div><div class="kelvin-desc">Cloudy</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">7500K</div><div class="kelvin-desc">Shade</div></div>
+        <div class="kelvin-item"><div class="kelvin-value">10000K</div><div class="kelvin-desc">Blue sky</div></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>WB Presets — When to Use What</h2>
+      <div class="wb-grid">
+        <div class="wb-preset"><div class="icon">☀️</div><h3>Daylight (5200K)</h3><p>Sunny outdoors, standard</div>
+        <div class="wb-preset"><div class="icon">☁️</div><h3>Cloudy (6000K)</h3><p>Overcast, adds warmth</div>
+        <div class="wb-preset"><div class="icon">🌳</div><h3>Shade (7000K)</h3><p>Open shade, adds more warmth</div>
+        <div class="wb-preset"><div class="icon">💡</div><h3>Tungsten (3200K)</h3><p>Incandescent bulbs, removes orange</div>
+        <div class="wb-preset"><div class="icon">💡</div><h3>White Fluorescent (4000K)</h3><p>Cool white tubes</div>
+        <div class="wb-preset"><div class="icon">⚡</div><h3>Flash (6000K)</h3><p>Speedlight/strobe</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Custom Kelvin — Your Secret Weapon</h2>
+      <ul>
+        <li>Menu → White Balance → K (Kelvin)</li>
+        <li>Dial exact temperature: 2500K–10000K</li>
+        <li><strong>Lower K = warmer (orange)</strong></li>
+        <li><strong>Higher K = cooler (blue)</strong></li>
+        <li>Gym lighting? Dial 3500K. Golden hour? Dial 6000K.</li>
+        <li>Saves you from fixing every photo in post</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Custom WB (Gray Card) — The Pro Way</h2>
+      <ol>
+        <li>Buy 18% gray card ($10) or use white paper in pinch</li>
+        <li>Place card in SAME light as subject</li>
+        <li>Fill frame with card</li>
+        <li>Menu → Custom WB → Select image → OK</li>
+        <li>Set WB to Custom (icon: two triangles + square)</li>
+      </ol>
+      <p><strong>Pro tip:</strong> Do this EVERY time light changes. Takes 15 seconds. Saves hours in post.</p>
+    </section>
+
+    <section>
+      <h2>WB Shift/BKT — Fine Tune</h2>
+      <ul>
+        <li>Menu → WB Shift/BKT</li>
+        <li>Move dot on grid: A (amber) ← → B (blue), G (green) ← → M (magenta)</li>
+        <li>Subtle creative shifts: +A2/M1 = warm skin tones</li>
+        <li>BKT = bracket 3 shots with different shifts</li>
+      </ul>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>AWB, Daylight, Shade, Cloudy, Custom Kelvin, Custom WB.</strong> Same scene, 6 WB settings. Compare: skin tones, white objects, overall mood. Set Custom Kelvin to 3500K for gym, 5500K for flash, 7000K for shade.</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=GDliqX5fWUU" target="_blank" class="video_link">Learn White Balance In 2 Minutes</a>
+      <br><br>
+      <a href="https://www.samanthashannonphotography.com/how-to-set-kelvin-white-balance-manual-mode-photography/" target="_blank" class="video-link">How to Set Kelvin White Balance</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain when to use each WB preset</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Set Custom Kelvin to 3500K (gym), 5500K (flash), 7000K (shade)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Created Custom WB with gray card in gym light</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Understands Kelvin: lower=warmer, higher=cooler</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="15-focus-stacking.html" class="btn btn-secondary">← Previous</a>
+      <a href="17-light-direction.html" class="btn btn-primary">Next: Light Direction →</a>
+    </div>
+  </div>
+</body>
+</html>

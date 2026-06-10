@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6: Aperture — The Bokeh Button — Shutter Quest</title>
+  <style>
+    :root{--bg:#030712;--card:#111827;--border:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--primary:#22c55e;--blue:#3b82f6;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;padding:20px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:24px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#000;margin-bottom:16px}
+    .p2{background:linear-gradient(135deg,#f97316,#ea580c)}
+    h1{font-size:28px;font-weight:800;margin-bottom:8px}
+    .meta{display:flex;gap:16px;color:var(--muted);font-size:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    section{margin-bottom:32px}
+    h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--primary)}
+    p{margin-bottom:16px;line-height:1.7}
+    ul{margin-left:20px;margin-bottom:16px}
+    li{margin-bottom:8px}
+    .challenge-box{background:rgba(34,197,94,0.1);border:1px solid var(--primary);border-radius:12px;padding:20px;margin:24px 0}
+    .challenge-title{font-weight:700;margin-bottom:8px;color:var(--primary)}
+    .video-link{display:inline-block;margin:16px 0;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--primary);text-decoration:none;font-weight:600}
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .checklist h3{margin-bottom:12px}
+    .checklist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+    .checklist-item:last-child{border-bottom:none}
+    .checkbox{width:20px;height:20px;border:2px solid var(--primary);border-radius:4px;appearance:none;cursor:pointer}
+    .checkbox:checked{background:var(--primary)}
+    .nav-bottom{display:flex;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#000}
+    .btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost{color:var(--muted)}
+    .ruler{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+    .ruler h3{margin-bottom:12px}
+    .f-stop-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .f-stop{flex:1;min-width:60px;text-align:center;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
+    .f-stop-value{font-weight:700;font-size:14px}
+    .f-stop-desc{font-size:10px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Curriculum</a>
+    <span class="badge p2">Lesson 6</span>
+    <h1>Aperture — The Bokeh Button</h1>
+    <div class="meta">
+      <span>Phase 2: Exposure Triangle</span>
+      <span>🤖 Together Coder (Llama 3.3 70B)</span>
+      <span>150 XP</span>
+    </div>
+
+    <section>
+      <h2>Objective</h2>
+      <p>Master aperture (f-stops), depth of field, bokeh, and how aperture controls both light AND creative look.</    </section>
+
+    <section>
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>f-stop = focal length / aperture diameter (it's a fraction!)</li>
+        <li>SMALL number = BIG hole = MORE light = SHALLOW depth of field</li>
+        <li>LARGE number = SMALL hole = LESS light = DEEP depth of field</li>
+        <li>f/1.8 = dreamy portraits, f/16 = sharp landscapes</li>
+        <li>Aperture Priority (Av) mode — you pick f-stop, camera picks shutter</li>
+        <li>Sweet spot: f/8-f/11 for maximum sharpness</li>
+      </ul>
+    </section>
+
+    <div class="ruler">
+      <h3>🎚️ f-stop Ruler — Know Your Scale</h3>
+      <div class="f-stop-row">
+        <div class="f-stop"><div class="f-stop-value">f/1.4</div><div class="f-stop-desc">Max bokeh</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/1.8</div><div class="f-stop-desc">Portrait king</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/2</div><div class="f-stop-desc">Low light</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/2.8</div><div class="f-stop-desc">Event work</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/4</div><div class="f-stop-desc">Groups</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/5.6</div><div class="f-stop-desc">Sharpish</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/8</div><div class="f-stop-desc">Sweet spot</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/11</div><div class="f-stop-desc">Landscape</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/16</div><div class="f-stop-desc">Deep focus</div></div>
+        <div class="f-stop"><div class="f-stop-value">f/22</div><div class="f-stop-desc">Max depth</div></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>The Aperture Trade-offs</h2>
+      <ul>
+        <li><strong>Wide (f/1.4-f/2.8):</strong> Dreamy backgrounds, low light hero, but razor-thin focus plane</li>
+        <li><strong>Middle (f/4-f/5.6):</strong> Balanced — subject pops, context visible</li>
+        <li><strong>Narrow (f/8-f/16):</strong> Everything sharp, but needs light or tripod</li>
+        <li><strong>Diffraction warning:</strong> Past f/11, diffraction softens image slightly</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Aperture Priority (Av) — Your New Best Friend</h2>
+      <ol>
+        <li>Turn mode dial to <strong>Av</strong></li>
+        <li>Main dial = change f-stop</li>
+        <li>Camera auto-sets shutter speed</li>
+        <li>Watch shutter: if < 1/125, bump ISO or open aperture</li>
+      </ol>
+    </section>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎯 Challenge</div>
+      <p><strong>Portrait at f/1.8, landscape at f/11.</strong> Same subject distance. Compare: background blur, subject separation, overall feel. Shoot 3 portraits (f/1.8, f/4, f/8) and 3 landscapes (f/4, f/8, f/11).</p>
+    </div>
+
+    <div class="challenge-box">
+      <div class="challenge-title">🎬 Watch First</div>
+      <a href="https://www.youtube.com/watch?v=GYU7VojmwcM" target="_blank" class="video-link">Aperture, F-Stop, and Depth of Field Made Easy (FroKnowsPhoto)</a>
+    </div>
+
+    <div class="checklist">
+      <h3>✅ Completion Checklist</h3>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Can explain f-stop as fraction (focal/aperture)</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot portrait at f/1.8 with creamy bokeh</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Shot landscape at f/11 with front-to-back sharpness</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Used Av mode and watched shutter speed auto-adjust</label>
+      <label class="checklist-item"><input type="checkbox" class="checkbox"> Understands diffraction past f/11</label>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html" class="btn btn-ghost">← Curriculum</a>
+      <a href="05-zoom.html" class="btn btn-secondary">← Previous</a>
+      <a href="07-shutter.html" class="btn btn-primary">Next: Shutter →</a>
+    </div>
+  </div>
+</body>
+</html>
